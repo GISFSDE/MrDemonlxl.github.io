@@ -1,11 +1,11 @@
-// 评论issues仓库 
+// 评论issues仓库 by.removeif https://removeif.github.io/
 var repoIssuesUrl = "https://api.github.com/repos/MrDemonlxl/blog_comment/issues";
-// 对应仓库 clientId、clientSecret 关于这两个参数的安全问题，查看 https://mrdemonlxl.github.io/2019/09/19/博客源码分享.html#1-热门推荐，最新评论：
+// 对应仓库 clientId、clientSecret 关于这两个参数的安全问题，查看 https://removeif.github.io/2019/09/19/博客源码分享.html#1-热门推荐，最新评论：
 var clientId = "20ef8321698ab8c0c37b";
 var clientSecret = "237515b7faa3e1097f2980762f772c6f02dbcbbb";
 var authorizationToken = 'Basic ' + btoa(clientId + ':' + clientSecret);
 // 写comment count值
-var reqCommentCountUrl = repoIssuesUrl + "?t=" + new Date().getTime() + "&labels=Gitalk,";
+var reqCommentCountUrl;
 // 评论缓存key
 var COMMENT_CACHE_KEY = "commentKey";
 var valine;
@@ -335,7 +335,7 @@ function loadIssueData(appId, appKey, userName, userRepo, isValine) {
             }
         }
         // console.clear();
-        console.log("~~~~欢迎光临！记得有时间多来看看哦，https://mrdemonlxl.github.io/ ~~~~")
+        console.log("~~~~欢迎光临！记得有时间多来看看哦，https://removeif.github.io/ ~~~~")
     }
         ,
         500
