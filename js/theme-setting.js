@@ -1,5 +1,5 @@
 // author by removef
-// https://removeif.github.io/
+// https://mrdemonlxl.github.io/
 
 function isNightFun() {
     var isNightTemp = localStorage.getExpire('night');
