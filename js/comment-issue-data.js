@@ -1,9 +1,9 @@
 // 评论issues仓库 by.removeif https://removeif.github.io/
-var repoIssuesUrl = "https://api.github.com/repos/MrDemonlxl/blog_comment/issues";
+var repoIssuesUrl = "https://api.github.com/repos/MrDemonlxl/MrDemonlxl.github.io/issues";
 // 对应仓库 clientId、clientSecret 关于这两个参数的安全问题，查看 https://removeif.github.io/2019/09/19/博客源码分享.html#1-热门推荐，最新评论：
-var clientId = "20ef8321698ab8c0c37b";
-var clientSecret = "237515b7faa3e1097f2980762f772c6f02dbcbbb";
-var authorizationToken = 'Basic ' + btoa(clientId + ':' + clientSecret);
+var clientId;// = "20ef8321698ab8c0c37b";
+var clientSecret;// = "237515b7faa3e1097f2980762f772c6f02dbcbbb";
+// var authorizationToken = 'Basic ' + btoa(clientId + ':' + clientSecret);
 // 写comment count值
 var reqCommentCountUrl;
 // 评论缓存key
@@ -180,9 +180,9 @@ function renderCommentData(COMMENT_ARR) {
             htmlContentWidget +=
                 "<div class='card-comment-item'>" + 
                     "<a href=\"" + item.userUrl + "\"target=\"_blank\">" + 
-                        "<img class='ava' src='" + item.userAvatar + "  onerror='this.onerror = null;this.src=\"https://cdn.jsdelivr.net/npm/gitalk@1/src/assets/icon/github.svg\";' '/>
-                    </a>" +
-                    "<div class='item-header-text'><a href='" + item.userUrl + "' target='_blank'>" + item.userName + "</a>&nbsp;发表于" + getDateDiff(new Date(item.date).getTime()) + "</div>" + "<div class=\"item-text\"><a href =\"" + item.url + '#comment-container\">' + contentStr + "</a></div>" +
+                        "<img class='ava' src='" + item.userAvatar + "  onerror='this.onerror = null;this.src=\"https://cdn.jsdelivr.net/npm/gitalk@1/src/assets/icon/github.svg\";' '/></a>" +
+                        "<div class='item-header-text'><a href='" + item.userUrl + "' target='_blank'>" + item.userName + "</a>&nbsp;发表于" + getDateDiff(new Date(item.date).getTime()) + "</div>" + 
+                        "<div class=\"item-text\"><a href =\"" + item.url + '#comment-container\">' + contentStr + "</a></div>" +
                 "</div>";
         }
         htmlContentWidget += "</div>"
