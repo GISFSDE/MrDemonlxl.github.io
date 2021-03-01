@@ -1,5 +1,5 @@
 // author by removef
-// https://mrdemonlxl.github.io/
+// https://removeif.github.io/
 // 音乐处理
 var lastIndex;
 var musicJsons;
