@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JVM 与上层技术 - 魑魅先生</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="魑魅先生"><meta name="msapplication-TileImage" content="https://gitee.com/mychimei/picture/raw/master/透明头像.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="魑魅先生"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="JVM 与上层技术"><meta property="og:type" content="blog"><meta property="og:title" content="魑魅先生"><meta property="og:url" content="https://mrdemonlxl.github.io/"><meta property="og:site_name" content="魑魅先生"><meta property="og:description" content="JVM 与上层技术"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg"><meta property="article:published_time" content="2021-11-16T10:45:58.345Z"><meta property="article:modified_time" content="2021-11-16T10:42:57.000Z"><meta property="article:author" content="mrdemonlxl"><meta property="article:tag" content="工具教程"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mrdemonlxl.github.io/2021/11/16/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"},"headline":"魑魅先生","image":["https://gitee.com/mychimei/picture/raw/master/39go6v.jpg"],"datePublished":"2021-11-16T10:45:58.345Z","dateModified":"2021-11-16T10:42:57.000Z","author":{"@type":"Person","name":"魑魅先生"},"description":"JVM 与上层技术"}</script><link rel="canonical" href="http://mrdemonlxl.github.io/2021/11/16/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"><link rel="icon" href="https://gitee.com/mychimei/picture/raw/master/透明头像.png"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://gitee.com/mychimei/picture/raw/master/彩色logo.png" alt="魑魅先生" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/friend">友链</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/self-talking">碎碎念</a><a class="navbar-item" href="/music">音乐</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://gitee.com/mychimei/picture/raw/master/39go6v.jpg" alt="JVM 与上层技术"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2021-11-16  <a class="commentCountImg" href="/2021/11/16/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/#comment-container"><span class="display-none-class">486d51bdeafd99dbf0aa6c0067a949d5</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="486d51bdeafd99dbf0aa6c0067a949d5">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>1 小时  <i class="fas fa-pencil-alt"> </i>7.6 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div><div class="pin-icon"><i class="fas fa-thumbtack"></i></div></div><h1 class="title is-3 is-size-4-mobile">JVM 与上层技术</h1><div class="content"><blockquote>
+<p>JVM 与上层技术</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<h1 id="%E6%96%B0%E5%AD%A6%E5%9B%9B%E9%97%AE">新学四问</h1>
+<p>**WHY【与前代优化了什么，弥补了什么空白】：**了解底层，优化，面试，解决底层BUG<br />
+**WHAT【框架，思维导图，主题框架】：**结构，<br />
+<strong>HOW【如何记忆，学习资源】</strong>：学习资源：尚硅谷JVM，ANKI记忆<br />
+**LEVEL【不是每个都学精】：**了解</p>
+</blockquote>
+<h1 id="%E8%BF%9B%E5%BA%A6%EF%BC%9A%E4%B8%8A%E7%AF%87-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E3%80%90%E5%AE%8C%E3%80%91">进度：上篇 第二章【完】</h1>
+<h1 id="%E4%B8%8A%E7%AF%87%EF%BC%9A%E5%86%85%E5%AD%98%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">上篇：内存与垃圾回收</h1>
+<h1 id="%E4%B8%80%E3%80%81jvm%E4%B8%8Ejava%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">一、JVM与JAVA体系结构</h1>
+<h2 id="1.java%E4%B8%8Ejvm" id="1-JAVA与JVM">1.JAVA与JVM</h2>
+<h3 id="java%E5%A4%A7%E4%BA%8B%E4%BB%B6" id="Java大事件">Java大事件</h3>
+<ul>
+<li>1990年，在sun公司中，由Patrick naughton、mikesheridan以及james Gosling领导的小组Green Team，开发出新的程序语言，命名为OAK，后期更名为Java</li>
+<li>1995年，sun正式发布Java和hotJAVA产品，Java首次公开亮相。</li>
+<li>1996年1月23日sun Microsystems发布了JDK1.0.</li>
+<li>1998年，JDK1.2版本发布。同时，sun发布了JSP/Servlet、EJB规范，以及将Java分成了J2EE、J2SE和J2ME。这表明Java开始向企业、桌面应用和移动设备应用3大领域挺进。</li>
+<li>2000年，JDK1.3发布，Java HotSpot Virtual Machine正式发布，成为Java默认的虚拟机。</li>
+<li>2002年，JDK 1.4发布，古老的classic虚拟机退出历史舞台。</li>
+<li>2003年底，Java平台的scala正式发布，同年Groovy也加入了Java阵营。</li>
+<li>2004年，JDK1.5发布，同时JDK1.5改名为JavaSE5.0.</li>
+<li>2006年，JDK 6发布，同年Java开源并建立了openJDK，顺理成章，Hotspot虚拟机成为了OpenJDK中默认的虚拟机。</li>
+<li>2007年，Java平台迎来了新伙伴Clojure。</li>
+<li>2008年，Oracle收购了BEA，得到了JRockit虚拟机。</li>
+<li>2009年，Twitter宣布将后台大部分程序从ruby迁移到Scala，这是Java平台的有一次大规模应用。</li>
+<li>2010年，Oracle收购了sun，获得Java商标和最具价值的hotspot虚拟机。此时Oracle拥有市场占用率最高的两款虚拟机hotspot和JRockit，并且计划未来进行整合：HotRockit。</li>
+<li>2011年，JDK7发布，在JDK１.7ｕ4中，正式启用了新的垃圾回收器G1.</li>
+<li>2017年，JDK9发布，将G1设置为默认GC，替代CMS。</li>
+<li>2017同年，IBM的J9开源，形成了现在的open J9社区。</li>
+<li>2018年，Android的Java侵权案判决，Google公司赔偿Oracle总计88亿美元。</li>
+<li>2018同年，Oracle宣布JavaEE成为历史名词，JDBC、JMS、Servlet赠与Eclipse基金会。</li>
+<li>2018同年，JDK11发布，LTS版本的JDK，发布革命性的ZGC，调整JDK授权许可。</li>
+<li>2019年，JDK12发布，加入RedHat领导开发的shenandoah GC。</li>
+<li>在JDK11之前，OracleJDK还会存在一些openJDK中没有的、闭源的功能。但在JDK11中，openJDK和OracleJDK代码实质上已经达到完全一致的程度。</li>
+</ul>
+<h3 id="jvm%E4%BB%8B%E7%BB%8D" id="JVM介绍">JVM介绍</h3>
+<p>​		所谓虚拟机(Virtual Machine)，就是一台虚拟的计算机。它是一款软件，用来执行一系列虚拟计算机指令。大体上，虚拟机可以分为<strong>系统虚拟机</strong>和<strong>程序虚拟机</strong>。大名鼎鼎的Visual Box,VMware就属于系统虚拟机，它们完全是对物理计算机的仿真，提供了一个可运行完整操作系统的软件平台。程序虚拟机的典型代表就是Java虚拟机，它专门为执行单个计算机程序而设计，在Java虚拟机中执行的指令我们称为Java字节码指令。无论是系统虚拟机还是程序虚拟机，在上面运行的软件都被限制于虚拟机提供的资源中。</p>
+<p>​		Java虚拟机是一台执行Java字节码的虚拟计算机，它拥有独立的运行机制,其运行的Java字节码也未必由Java语言编译而成。JVM平台的各种语言可以共享Java虚拟机带来的跨平台性、优秀的垃圾回器，以及可靠的即时编译器。Java技术的核心就是Java虚拟机（JVM，Java Virtual Machine) ,因为所有的Java程序都运行在Java虚拟机内部。</p>
+<p>**作用：**Java虚拟机就是二进制字节码的运行环境，负责装载字节码到其内部，解释/编译为对应平台上的机器指令执行。每一条Java指令，Java虚拟机规汜甲都有详细定义，如怎么取操作数，怎么处理操作数，处理结果放在哪里。<br />
+**特点：**一次编译，到处运行；自动内存管理；自动垃圾回收功能</p>
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC01%E7%AB%A0_JVM%E8%B7%A8%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B9%B3%E5%8F%B0.jpg" alt="第01章_JVM跨语言的平台" style="zoom: 50%;" />
+<p><strong>位置：</strong></p>
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC01%E7%AB%A0_JVM%E6%89%80%E5%A4%84%E4%BD%8D%E7%BD%AE.jpg" alt="第01章_JVM所处位置" style="zoom:50%;" />
+<img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211111191323311.png" alt="image-20211111191323311" style="zoom: 80%;" />
+<h2 id="jvm%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84" id="JVM整体结构">JVM整体结构</h2>
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC02%E7%AB%A0_JVM%E6%9E%B6%E6%9E%84-%E7%AE%80%E5%9B%BE.jpg" alt="第02章_JVM架构-简图" style="zoom:50%;" />
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC02%E7%AB%A0_JVM%E6%9E%B6%E6%9E%84-%E4%B8%AD.jpg" alt="第02章_JVM架构-中" style="zoom:50%;" />
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC02%E7%AB%A0_JVM%E6%9E%B6%E6%9E%84-%E8%8B%B1.jpg" alt="第02章_JVM架构-英" style="zoom:50%;" />
+<h2 id="java%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B" id="Java代码执行流程">Java代码执行流程</h2>
+<p>​		<img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211111192234413.png" alt="image-20211111192234413" /></p>
+<h2 id="jvm%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B" id="JVM架构模型">JVM架构模型</h2>
+<p>Java编译器输入的指令流基本上是一种<strong>基于栈的指令集架构</strong>，另外一种指令集架构则是基于寄存器的指令集架构。</p>
+<p><strong>区别:</strong></p>
+<p><strong>·基于栈式架构的特点</strong><br />
+设计和实现更简单，适用于资源受限的系统;<br />
+避开了寄存器的分配难题:使用零地址指令方式分配。<br />
+指令流中的指令大部分是零地址指令，其执行过程依赖于操作栈。指令集更小，编译器容易实现。<br />
+不需要硬件支持，可移植性更好，更好实现跨平台</p>
+<p><strong>基于寄存器架构的特点</strong><br />
+典型的应用是x86的二进制指令集:比如传统的pc以及Android的Davlik虚拟机。<br />
+指令集架构则完全依赖硬件,可移植性差<br />
+性能优秀和执行更高效;<br />
+花费更少的指令去完成一项操作。<br />
+在大部分情况下，基于寄存器架构的指令集往往都以一地址指令、二地址指令和三地址指令为主，而基于栈式架构的指令集却是以零地址指令为主。</p>
+<p><strong>总结:</strong><br />
+由于跨平台性的设计，Java的指令都是根据栈来设计的。不同平台CPu架构不同，所以不能设计为基于寄存器的。优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。<br />
+时至今日，尽管嵌入式平台已经不是Java程序的主流运行平台了（准确的来说HotSpotVM的宿主环境已经不局限于嵌入式平台了)，那么为什么不将<br />
+架构更换为基于寄存器的架构呢?<br />
+栈:<br />
+跨平台性、指令集小、指令多;执行性能比寄存器差</p>
+<h2 id="jvm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" id="JVM生命周期">JVM生命周期</h2>
+<h3 id="%E5%90%AF%E5%8A%A8" id="启动">启动</h3>
+<p>Java虚拟机的启动是通过<strong>引导类加载器(bootstrap class loader)<strong>创建一个</strong>初始类</strong>(initial class)来完成的，这个类是由虚拟机的具体实现指定的</p>
+<h3 id="%E6%89%A7%E8%A1%8C" id="执行">执行</h3>
+<p>一个运行中的Java虚拟机有着一个清晰的任务:执行Java程序。<br />
+程序开始执行时他才运行，程序结束时他就停止。<br />
+执行一个所谓的Java程序的时候，真真正正在执行的是一个叫做<strong>Java虚拟机的进程</strong>。</p>
+<h3 id="%E9%80%80%E5%87%BA" id="退出">退出</h3>
+<p>有如下的几种情况:。程序正常执行结束<br />
+·程序在执行过程中遇到了异常或错误而异常终止·由于操作系统出现错误而导致Java虚拟机进程终止<br />
+·某线程调用Runtime类或system类的exit方法，或Runtime类的halt方法，并且Java安全管理器也允许这次exit或halt操作。<br />
+·除此之外，JNI ( Java Native Interface)规范描述了用JNI Invocation API来加载或卸载Java虚拟机时，Java虚拟机的退出情况。</p>
+<h2 id="jvm%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B" id="JVM发展历程">JVM发展历程</h2>
+<h3 id="sun-classic-vm" id="SUN-Classic-VM">SUN Classic VM</h3>
+<p>·早在1996年Java1.0版本的时候，sun公司发布了一款名为Sun Classic VM的Java虚拟机，它同时也是世界上第一款商用Java虚拟机，JDK1.4时完全被淘汰。<br />
+·这款虚拟机内部只提供解释器。<br />
+·如果使用JIT编译器，就需要进行外挂。但是一旦使用了JIT编译器JIT就会接管虚拟机的执行系统。解释器就不再工作。解释器和编译器不能配合工作。<br />
+·现在hotspot内置了此虚拟机。</p>
+<h3 id="exact-vm" id="Exact-VM">Exact VM</h3>
+<p>·为了解决上一个虚拟机问题，jdk1.2时，sun提供了此虚拟机。<br />
+Exact Memory Management:准确式内存管理<br />
+·也可以叫Non-conservative/Accurate Memory Management：虚拟机可以知道内存中某个位置的数据具体是什么类型。<br />
+具备现代高性能虚拟机的雏形<br />
+·热点探测<br />
+·编译器与解释器混合工作模式I<br />
+只在solaris平台短暂使用，其他平台上还是classic vm<br />
+·英雄气短，终被Hotspot虚拟机替换</p>
+<h3 id="sun%E5%85%AC%E5%8F%B8%E7%9A%84-hotspot-vm" id="SUN公司的-HotSpot-VM"><strong>SUN公司的 HotSpot VM</strong></h3>
+<h4 id="hotspot%E5%8E%86%E5%8F%B2" id="HotSpot历史">HotSpot历史</h4>
+<p>·最初由一家名为“Longview Technologies&quot;的小公司设计1997年，此公司被sun收购;2009年，sun公司被甲骨文收购。<br />
+·JDK1.3时，HotSpot VM成为默认虚拟机<br />
+·目前Hotspot占有绝对的市场地位，称霸武林。<br />
+不管是现在仍在广泛使用的JDK6，还是使用比例较多的JDK8中，默认的虚拟机都是HotSpot<br />
+sun/ oracle JDK 和 OpenJDK的默认虚拟机<br />
+因此本课程中默认介绍的虚拟机都是HotSpot，相关机制也主要是指HotSpot的GC机制。(比如其他两个商用虚拟机都没有方法区的概念)<br />
+·从服务器、桌面到移动端、嵌入式都有应用。<br />
+·名称中的HotSpot指的就是它的热点代码探测技术。<br />
+通过计数器找到最具编译价值代码，触发即时编译或栈上替换<br />
+通过编译器与解释器协同工作，在最优化的程序响应时间与最佳执行性能中取得平衡</p>
+<h3 id="bea-%E7%9A%84jrockit" id="BEA-的JRockit">BEA 的JRockit</h3>
+<p>·专注于服务器端应用<br />
+它可以不太关注程序启动速度，因此JRockit内部不包含解析器实现，全部代码都靠即时编译器编译后执行。<br />
+·大量的行业基准测试显示，JRockit JVM是世界上最快的JVM。<br />
+使用JRockit产品，客户已经体验到了显著的性能提高（一些超过了70% ）和<br />
+硬件成本的减少(达50%）。<br />
+·优势:全面的Java运行时解决方案组合<br />
+JRockit面向延迟敏感型应用的解决方案JRockit Real Time提供以毫秒或<br />
+微秒级的JVM响应时间，适合财务、军事指挥、电信网络的需要<br />
+MissionControl服务套件，它是一组以极低的开销来监控、管理和分析生产<br />
+环境中的应用程序的工具。<br />
+2008年，BEA被oracle收购。<br />
+oracle表达了整合两大优秀虚拟机的工作，大致在JDK 8中完成。整合的方式是在HotSpot的基础上，移植JRockit的优秀特性。<br />
+·高斯林:目前就职于谷歌，研究人工智能和水下机器人</p>
+<h3 id="ibm-%E7%9A%84j9" id="IBM-的J9">IBM 的J9</h3>
+<p>全称:IBM Technology for Java virtual Machine，简称IT4J，内部代号:J9<br />
+·市场定位与HotSpot接近，服务器端、桌面应用、嵌入式等多用途VM。<br />
+·广泛用于IBM的各种Java产品。<br />
+·目前，有影响力的三大商用虚拟机之一，也号称是世界上最快的Java虚拟机。<br />
+·2017年左右，IBM发布了开源J9 VM，命名为openJ9，交给Eclipse基金会管理，也称为Eclipse OpenJ9</p>
+<h3 id="kvm%E5%92%8Ccdc%2Fcl.dc-hotspot" id="KVM和cDC-CL-DC-Hotspot">KVM和cDC/CL.DC Hotspot</h3>
+<p>oracle在Java ME产品线上的两款虚拟机为:CDC/CLDC HotSpot Implementation VM<br />
+KVM (Kilobyte）是CLDC-HI早期产品<br />
+·目前移动领域地位尴尬，智能手机被Android和ioS二分天下。<br />
+.KVM简单、轻量、高度可移植，面向更低端的设备上还维持自己的一片市场<br />
+智能控制器、传感器I<br />
+老人手机、经济欠发达地区的功能手机<br />
+.所有的虚拟机的原则:一次编译，到处运行。</p>
+<h3 id="azul-vm" id="Azul-VM">Azul VM</h3>
+<p>·前面三大“高性能Java虚拟机”使用在通用硬件平台上<br />
+·这里Azul VM和BEA Liquid VM是与特定硬件平台绑定、软硬件配合的专有虚拟机<br />
+高性能Java虚拟机中的战斗机。<br />
+Azul VM是Azul systems公司在HotSpot基础上进行大量改进，运行于Azul systems公司的专有硬件vega系统上的Java虚拟机。<br />
+·每个Azul VM实例都可以管理至少数十个CPu和数百GB内存的硬件资源，并提供在巨大内存范围内实现可控的Gc时间的垃圾收集器、专有硬件优化的线程调度等优秀特性。<br />
+2010年，Azul systems公司开始从硬件转向软件，发布了自己的ZingJVM，可以在通用x86平台上提供接近于Vega系统的特性。T</p>
+<h3 id="liquid-vm" id="Liquid-VM">Liquid VM</h3>
+<p>·高性能Java虚拟机中的战斗机。<br />
+·BEA公司开发的，直接运行在自家Hypervisor系统上<br />
+·Liquid VM即是现在的JRockit VE(Virtual Edition） ,LiquidVM不需要操作系统的支持，或者说它自己本身实现了一个专用操作系统的必要功能，如线程调度、文件系统、网络支持等。<br />
+·随着JRockit虚拟机终止开发，Liquid VM项目也停止了。</p>
+<h3 id="apache-harmony" id="Apache-Harmony">Apache Harmony</h3>
+<p>Apache也曾经推出过与JDK 1.5和JDK 1.6兼容的Java运行平台Apache Harmony。<br />
+·它是IBM和Intel联合开发的开源JVM，受到同样开源的openJDK的压制，<br />
+sun坚决不让Harmony获得JCP认证，最终于2011年退役，IBM转而参与OpenJDK<br />
+·虽然目前并没有Apache Harmony被大规模商用的案例，但是它的Java<br />
+类库代码吸纳进了Android SDK。</p>
+<h3 id="microsoft-jvm" id="Microsoft-JVM">Microsoft JVM</h3>
+<p>·微软为了在IE3浏览器中支持Java Applets，开发了Microsoft JVM。·只能在window平台下运行。但确是当时windows下性能最好的Java VM.. 1997年，sun以侵犯商标、不正当竞争罪名指控微软成功，赔了sun很多钱。微软在windowsXP SP3中抹掉了其VM。现在windows上安装的jdk都是HotSpot。l</p>
+<h3 id="taobaojvm" id="TaobaoJVM">TaobaoJVM</h3>
+<p>·由AliJVM团队发布。阿里，国内使用Java最强大的公司，覆盖云计算、金雷生切一电商等众多领域，需要解决高并发、高可用、分布式的复合问题。有大重的开源广的。<br />
+·基于openJDK开发了自己的定制版本AlibabaJDK，简称AJDK。是整个阿里Java体系的基石。<br />
+·基于openJDK HotSpot VM 发布的国内第一个优化、深度定制且开源的高性能服务器版Java虚拟机。<br />
+创新的GCIH (Gc invisible heap ）技术实现了off-heap ，即将生命周期较长的Java对象从heap中移到heap之外，并且GC不能管理GCIH内部的Java 对象，以此达到降低GC的回收频率和提升GC 的回收效率的目的。<br />
+GCIH 中的对象还能够在多个Java虚拟机进程中实现共享<br />
+使用crc32指令实现JVM intrinsic降低JNI 的调用开销<br />
+PMU hardware 的Java profiling tool和诊断协助功能<br />
+针对大数据场景的ZenGC<br />
+. taobao vm应用在阿里产品上性能高，硬件严重依赖intel的cpu，损失了兼容性，但提高了性能<br />
+目前已经在淘宝、天猫上线，把oracle 官方JVM版本全部替换了。</p>
+<h3 id="dalvik-vm-%3A" id="Dalvik-VM">Dalvik VM :</h3>
+<p>·谷歌开发的，应用于Android系统，并在Android2.2中提供了JIT，发展迅猛。.Dalvik VM只能称作虚拟机，而不能称作“Java虚拟机”，它没有遵循<br />
+Java虚拟机规范<br />
+·不能直接执行Java 的class 文件·基于寄存器架构，不是jvm的栈架构。<br />
+·执行的是编译以后的dex(Dalvik Executable）文件。执行效率比较高<br />
+它执行的dex (Dalvik Executable）文件可以通过class文件转化而来，使用Java语法编写应用程序，可以直接使用大部分的Java API等。<br />
+·Android 5.0使用支持提前编译(Ahead of Time Compilation，AOT）的ARTVM替换Dalvik VM。</p>
+<h3 id="graal-vm" id="Graal-VM">Graal VM</h3>
+<p>. 2018年4月，oracle Labs公开了Graal VM，号称&quot;Run Programs Faster Anywhere&quot;，勃勃野心。与1995年java的”write once，run anywhere&quot;遥相呼应。<br />
+Graal VM在HotSpot VM基础上增强而成的跨语言全栈虚拟机，可以作为“任何语言”的运行平台使用。语言包括: Java、Scala、Groovy、Kotlin;C、C++<br />
+Javascript、Ruby、Python、R等<br />
+·支持不同语言中混用对方的接口和对象，支持这些语言使用已经编写好的本地库文件工作原理是将这些语言的源代码或源代码编译后的中间格式，通过解释器转换为能被Graal VM接受的中间表示。Graal VM提供Truffle工具集快速构建面向一种新语言的解释器。在运行时还能进行即时编译优化，获得比原生编译器更优秀的执行效率。<br />
+如果说HotSpot有一天真的被取代，Graal VM希望最大。但是Java的软件生态没有丝毫变化。</p>
+<h1 id="%E4%BA%8C%E3%80%81%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F">二、类加载子系统</h1>
+<h2 id="1.%E5%86%85%E5%AD%98%E7%AE%80%E5%9B%BE" id="1-内存简图">1.内存简图</h2>
+<img src="https://gitee.com/mychimei/picture/raw/master/work/第02章_JVM架构-简图.jpg" style="zoom: 50%;" />
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC02%E7%AB%A0_JVM%E6%9E%B6%E6%9E%84-%E8%8B%B1.jpg" style="zoom: 50%;" />
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC02%E7%AB%A0_JVM%E6%9E%B6%E6%9E%84-%E4%B8%AD.jpg" style="zoom: 50%;" />
+<h2 id="2.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8" id="2-类加载器">2.类加载器</h2>
+<p>​	类加载器子系统负责从文件系统或者网络中加载class文件，class文件在文件开头有特定的文件标识。<br />
+ClassLoader只负责class文件的加载，至于它是否可以运行，则由ExecutionEngine决定。<br />
+加载的类信息存放于一块称为方法区的内存空间。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串字面量和数字常量（这部分常量信息是Class文件中常量池部分的内存映射)</p>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211115193632367.png" alt="image-20211115193632367" /></p>
+<h2 id="3.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8classloader%E8%A7%92%E8%89%B2" id="3-类加载器ClassLoader角色">3.类加载器ClassLoader角色</h2>
+<ol>
+<li>class file 存在于本地硬盘上，可以理解为设计师画在纸上的模板，而最终这个模板在执行的时候是要加载到JVM当中来根据这个文件实例化出n个一模一样的实例。</li>
+<li>class file 加载到JVM中，被称为DNA元数据模板，放在方法区。</li>
+<li>在.class文件-&gt; JVM -&gt;最终成为元数据模板，此过程就要一个运输工具(类装载器class Loader)，扮演一个快递员的角色。</li>
+</ol>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211115194329061.png" alt="image-20211115194329061" /></p>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211116140445121.png" alt="image-20211116140445121" /></p>
+<h3 id="%E8%8E%B7%E5%8F%96classloader%E9%80%94%E7%BB%8F" id="获取ClassLoader途经">获取ClassLoader途经</h3>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211116140425056.png" alt="image-20211116140425056" /></p>
+<h2 id="4.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B" id="4-类加载过程">4.类加载过程</h2>
+<img src="https://gitee.com/mychimei/picture/raw/master/work/%E7%AC%AC02%E7%AB%A0_%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.jpg" alt="image-20211115194329061" style="zoom: 50%;" />
+<img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211115194822559.png" alt="image-20211115194329061" style="zoom: 80%;" />
+<h3 id="%E5%8A%A0%E8%BD%BD(loading)%3A" id="加载-Loading">加载(Loading):</h3>
+<p>1．通过一个类的全限定名获取定义此类的二进制字节流<br />
+2．将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构<br />
+3．在内存中生成一个代表这个类的 <strong>java.lang.Class</strong> 对象，作为方法区这个类的各种数据的访问入口<br />
+补充:加载.class文件的方式<br />
+·从本地系统中直接加载<br />
+·通过网络获取，典型场景: web Applet<br />
+·从zip压缩包中读取，成为日后jar、 war格式的基础·运行时计算生成，使用最多的是:动态代理技术<br />
+·由其他文件生成，典型场景:JSP应用<br />
+·从专有数据库中提取.class文件,比较少见<br />
+·从加密文件中获取，典型的防class文件被反编译的保护措施</p>
+<h3 id="%E9%93%BE%E6%8E%A5" id="链接">链接</h3>
+<h4 id="%E9%AA%8C%E8%AF%81(verify)%3A" id="验证-Verify">验证(Verify):</h4>
+<p>·目的在于确保class文件的字节流中包含信息符合当前虚拟机要求，保证被加载类的正确性，不会危害虚拟机自身安全。<br />
+·主要包括四种验证，文件格式验证，元数据验证，字节码验证，符号引用验证。</p>
+<h4 id="%E5%87%86%E5%A4%87(prepare)%3A" id="准备-Prepare">准备(Prepare):</h4>
+<p>·为类变量分配内存并且设置该类变量的默认初始值，即零值。<br />
+这里不包含用final修饰的static，因为final在编译的时候就会分配了，准备阶段会显式链初始化;<br />
+·这里不会为实例变量分配初始化，类变量会分配在方法区中，而实例变量是会随着对象一起分配到Java堆中。</p>
+<h4 id="%E8%A7%A3%E6%9E%90(resolve)-%3A" id="解析-Resolve">解析(Resolve) :</h4>
+<p>·将常量池内的符号引用转换为直接引用的过程。<br />
+·事实上，解析操作往往会伴随着JVM在执行完初始化之后再执行。<br />
+·符号引用就是一组符号来描述所引用的目标。符号引用的字面量形式明确定义在《java虚拟机规范》的class文件格式中。直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄。<br />
+·解析动作主要针对类或接口、字段、类方法、接口方法、方法类型等。对应常量池中的 CONSTANT Class info、CONSTANT Fieldref_info、CONSTANT _Methodref_info等.。</p>
+<h3 id="%E5%88%9D%E5%A7%8B%E5%8C%96%3A" id="初始化">初始化:</h3>
+<p>·初始化阶段就是执行类构造器方法<clinit> ()的过程。<br />
+·此方法不需定义，是javac编译器自动收集类中的所有类变量的赋值动作和静态代码块中的语句合并而来。<br />
+·构造器方法中指令按语句在源文件中出现的顺序执行。<br />
+. <clinit> ()不同于类的构造器。(关联:构造器是虚拟机视角下的<init>( ))·若该类具有父类，JVM会保证子类的<clinit>()执行前，父类的<clinit> ()已经执行完毕。<br />
+·虚拟机必须保证一个类的<clinit> ()方法在多线程下被同步加锁。</p>
+<h2 id="5.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%88%86%E7%B1%BB" id="5-类加载器分类">5.类加载器分类</h2>
+<p>JVM支持两种类型的类加载器，分别为<strong>引导类加载器</strong>（Bootstrap ClassLoader）和<strong>自定义类加载器</strong>(User-Defined ClassLoader)。<br />
+·从概念上来讲，自定义类加载器一般指的是程序中由开发人员自定义的一类类加载器，但是Java虚拟机规范却没有这么定义，而是将所有派生于抽象类ClassLoader的类加载器都划分为自定义类加载器。<br />
+·无论类加载器的类型如何划分，在程序中我们最常见的类加载器始终只有3个，如下所示:</p>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211116133613669.png" alt="image-20211116133613669" /></p>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211116133718130.png" alt="image-20211116133718130" /></p>
+<p>虚拟机自带的加载器</p>
+<h3 id="%C2%B7%E5%90%AF%E5%8A%A8%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%88%E5%BC%95%E5%AF%BC%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8Cbootstrap-classloader)" id="·启动类加载器（引导类加载器，Bootstrap-classLoader">·启动类加载器（引导类加载器，Bootstrap classLoader)</h3>
+<p>这个类加载使用<strong>C/C++<strong>语言实现的，嵌套在JVM内部。<br />
+它用来加载Java的</strong>核心库</strong>（JAVA HOME/jre/lib/rt.jar、resources.jar或sun.boot.class.path路径下的内容），用于提供JVM自身需要的类<br />
+并不继承自java.lang.classLoader，没有父加载器。加载扩展类和应用程序类加载器，并指定为他们的父类加载器。<br />
+出于安全考虑，Bootstrap启动类加载器只加载包名为<strong>java、javax、sun</strong>等开头的类</p>
+<h3 id="%C2%B7%E6%89%A9%E5%B1%95%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%88extension-classloader)" id="·扩展类加载器（Extension-ClassLoader">·扩展类加载器（Extension ClassLoader)</h3>
+<p>Java语言编写，由sun.misc.Launcher$ExtClassLoader实现。派生于classLoader类<br />
+父类加载器为启动类加载器<br />
+从java.ext.dirs系统属性所指定的目录中加载类库，或从JDK的安装目录的<strong>jre/lib/ext</strong>子目录（扩展目录)下加载类库。如果用户创建的JAR放在此目录下，也会自动由扩展类加载器加载。</p>
+<h3 id="%C2%B7%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%88%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8Cappclassloader)" id="·应用程序类加载器（系统类加载器，AppClassLoader">·应用程序类加载器（系统类加载器，AppClassLoader)</h3>
+<p>java语言编写，由sun.misc.Launcher$AppclassLoader实现&gt;派生于classLoader类<br />
+父类加载器为扩展类加载器<br />
+它负责加载环境变量classpath或系统属性java.class.<strong>path</strong>指定路径下的类库<br />
+该类加载是程序中默认的类加载器，一般来说，Java应用的类都是由它来完成加载<br />
+通过classLoader#getSystemClassLoader ()方法可以获取到该类加载器</p>
+<h4 id="%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8" id="用户自定义类加载器"><strong>用户自定义类加载器</strong></h4>
+<p>·在Java的日常应用程序开发中，类的加载几乎是由上述3种类加载器相互<br />
+配合执行的，在必要时，我们还可以自定义类加载器，来定制类的加载方式。<br />
+.为什么要自定义类加载器?<br />
+隔离加载类<br />
+修改类加载的方式<br />
+扩展加载源<br />
+防止源码泄漏</p>
+<h4 id="%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4%3A" id="用户自定义类加载器实现步骤"><strong>用户自定义类加载器实现步骤:</strong></h4>
+<p>1.开发人员可以通过继承抽象类java.lang.classLoader类的方式，实现自己的类加载器，以满足一些特殊的需求<br />
+2.在JDK1.2之前，在自定义类加载器时，总会去继承classLoader类并重写loadClass ()方法，从而实现自定义的类加载类，但是在JDK1.2之后已不再建议用户去覆盖loadclass ()方法，而是建议把自定义的类加载逻辑写在findclass ()方法中<br />
+3．在编写自定义类加载器时，如果没有太过于复杂的需求，可以直接继承URLClassLoader类，这样就可以避免自己去编写findclass ()方法及其获取字节码流的方式，使自定义类加载器编写更加简洁。</p>
+<h2 id="6.%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6" id="6-双亲委派机制">6.双亲委派机制</h2>
+<p>​	Java虚拟机对class文件采用的是按需加载的方式，也就是说当需要使用该类时才会将它的class文件加载到内存生成class对象。而且加载某个类的class文件时，Java虚拟机采用的是双亲委派模式，即把请求交由父类处理,它是一种任务委派模式。</p>
+<h3 id="%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" id="工作原理"><strong>工作原理</strong></h3>
+<p>1)如果一个类加载器收到了类加载请求，它并不会自己先去加载，而是把这个请求<strong>委托给父类</strong>的加载器去执行;<br />
+2)如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归，请求最终将到达顶层的启动类加载器;<br />
+3)如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。</p>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211116182608650.png" alt="image-20211116182608650" /></p>
+<h3 id="%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E4%BC%98%E5%8A%BF" id="双亲委派优势"><strong>双亲委派优势</strong></h3>
+<p>避免类的重复加载<br />
+保护程序安全，防止核心API被随意篡改<br />
+自定义类:java. lang. string<br />
+自定义类: java . lang. shkStart<br />
+java.lang. securityException: Prohibited package name: java.lang</p>
+<p><img src="https://gitee.com/mychimei/picture/raw/master/work/image-20211116183030909.png" alt="image-20211116183030909" /></p>
+<h3 id="%E6%B2%99%E7%AE%B1%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6" id="沙箱安全机制">沙箱安全机制</h3>
+<p>​	自定义string类，但是在加载自定义String类的时候会率先使用引导类加载器加载，而引导类加载器在加载的过程中会先加载jdk自带的文件(rt.jar包中java\lang\String.class)，报错信息说没有main方法，就是因为加载的是rt.jar包中的String类。这样可以保证对java核心源代码的保护，这就是沙箱安全机制。</p>
+<h2 id="7.%E5%85%B6%E4%BB%96" id="7-其他">7.其他</h2>
+<p>·在JVM中表示两个class对象是否为同一个类存在两个必要条件:<br />
+类的完整类名必须一致，包括包名。<br />
+加载这个类的classLoader(指classLoader实例对象)必须相同。<br />
+·换句话说，在VM中，即使这两个类对象(class对象)来源同一个class文件，被同一个虚拟机所加载，但只要加载它们的ClassLoader实例对象不同，那么这两个类对象也是不相等的。</p>
+<h3 id="%E5%AF%B9%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%85%B6%E7%9A%84%E5%BC%95%E7%94%A8" id="对类加载其的引用"><strong>对类加载其的引用</strong></h3>
+<p>JVM必须知道一个类型是由启动加载器加载的还是由用户类加载器加载的。如果一个类型是由用户类加载器加载的，那么JVM会将这个类加载器的一个引用作为类型信息的一部分保存在方法区中。当解析一个类型到另一个类型的引用的时候，JVM需要保证这两个类型的类加载器是相同的。</p>
+<h3 id="%E7%B1%BB%E7%9A%84%E4%B8%BB%E5%8A%A8%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A2%AB%E5%8A%A8%E4%BD%BF%E7%94%A8" id="类的主动使用和被动使用">类的主动使用和被动使用</h3>
+<p>Java程序对类的使用方式分为:主动使用和被动使用。·主动使用，又分为七种情况:<br />
+·创建类的实例<br />
+·访问某个类或接口的静态变量，或者对该静态变量赋值<br />
+·调用类的静态方法<br />
+·反射（比如: Class.forName ( &quot;com.atguigu . Test&quot;) )&gt;<br />
+·初始化一个类的子类<br />
+·Java虚拟机启动时被标明为启动类的类<br />
+·JDK 7开始提供的动态语言支持:java . lang.invoke.MethodHandle实例的解析结果REF getstatic、REF putstatic、REF_invokestatic句柄对应的类没有初始化，则初始化<br />
+除了以上七种情况，其他使用Java类的方式都被看作是对类的被动使用，都不会导致类的初始化。</p>
+<h1 id="%E4%B8%89%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%BA%BF!%E7%A8%8B">三、<em>运行时数据区概述及线!程</em></h1>
+<h1 id="%E5%9B%9B%E3%80%81%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8">四、<em>程序计数器</em></h1>
+<h1 id="%E4%BA%94%E3%80%81%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88">五、虚拟机栈</h1>
+<h1 id="%E5%85%AD%E3%80%81%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%8E%A5%E5%8F%A3">六、<em>本地方法接口</em></h1>
+<h1 id="%E4%B8%83%E3%80%81%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88.">七、<em>本地方法栈.</em></h1>
+<h1 id="%E5%85%AB%E3%80%81%E5%A0%86">八、堆</h1>
+<h1 id="%E4%B9%9D%E3%80%81%E6%96%B9%E6%B3%95%E5%8C%BA">九、方法区</h1>
+<h1 id="%E5%8D%81%E3%80%81%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98">十、<em>直接内存</em></h1>
+<h1 id="%E5%8D%81%E4%B8%80%E3%80%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E">十一、<em>执行引擎</em></h1>
+<h1 id="%E5%8D%81%E4%BA%8C%E3%80%81stringtable">十二、StringTable</h1>
+<h1 id="%E5%8D%81%E4%B8%89%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0">十三、<em>垃圾回收概述</em></h1>
+<h1 id="%E5%8D%81%E5%9B%9B%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95">十四、<em>垃圾回收相关算法</em></h1>
+<h1 id="%E5%8D%81%E4%BA%94%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">十五、<em>垃圾回收相关概念</em></h1>
+<h1 id="%E5%8D%81%E5%85%AD%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8">十六、垃圾回收器</h1>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>JVM 与上层技术</p><p><a href="http://mrdemonlxl.github.io/2021/11/16/Draft/2021/JVM 与上层技术/">http://mrdemonlxl.github.io/2021/11/16/Draft/2021/JVM 与上层技术/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="http://MrDemonlxl.github.io"><p>魑魅先生</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-11-16</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-11-16</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 相关文章</span><br><span>  1.<a class="is-size-6" href="/2021/08/17/Draft/2021/%E5%B7%A5%E5%85%B7%E7%AF%87/" target="_blank">工具篇</a><br></span><span>  2.<a class="is-size-6" href="/2021/07/23/Draft/2021/Markdown%20%E5%AD%A6%E4%B9%A0/" target="_blank">Markdown 学习</a><br></span><span>  3.<a class="is-size-6" href="/2021/01/19/Draft/2021/Hexo%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" target="_blank">博客模板</a><br></span></div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/2021/02/25/Draft/2021/%E4%B9%90%E7%90%86%E7%9F%A5%E8%AF%86/" target="_blank">魑魅先生 | 音乐</a><br></span><span>  2.<a class="is-size-6" href="/2021/02/25/Draft/2021/%E6%AF%8F%E6%97%A5%E8%8B%B1%E8%AF%AD/" target="_blank">魑魅先生 | 程序员英语</a><br></span><span>  3.<a class="is-size-6" href="/2021/02/25/Draft/2021/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">魑魅先生 | 计算机网络</a><br></span><span>  4.<a class="is-size-6" href="/2021/02/25/Draft/2021/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" target="_blank">魑魅先生 | 微信小程序</a><br></span><span>  5.<a class="is-size-6" href="/2021/02/19/Draft/2021/%E6%AF%8F%E6%97%A5%E7%AE%97%E6%B3%95/" target="_blank">魑魅先生 | 每日算法</a><br></span><span>  6.<a class="is-size-6" href="/2021/07/22/Draft/2021/%E8%B5%84%E6%BA%90%E7%AF%87/" target="_blank">魑魅先生 | 资源篇</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://gitee.com/mychimei/picture/raw/master/1c4f12804cc5a92919acd743d93a869.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://gitee.com/mychimei/picture/raw/master/260e4f4bc9e4053108cd9d02bae7386.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/02/24/Draft/2021/MYSQL%E4%BC%98%E5%8C%96/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">MYSQL优化</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/11/08/Draft/2021/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%AE%BA%E6%96%87%E6%A8%A1%E6%9D%BF/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
+            var gitalk = new Gitalk({
+            language:'zh-CN',
+            id: '486d51bdeafd99dbf0aa6c0067a949d5',
+            repo: 'MrDemonlxl.github.io',
+            owner: 'MrDemonlxl',
+            clientID: '20ef8321698ab8c0c37b',
+            clientSecret: '4faa4daae14b55afd2ed357fba92d1e9c7c3f729',
+            admin: ["MrDemonlxl"],
+            createIssueManually: true,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: 'last',
+            
+            
+            enableHotKey: true,
+            isLocked: false
+        })
+        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E6%96%B0%E5%AD%A6%E5%9B%9B%E9%97%AE"><span>新学四问</span></a></li><li><a class="is-flex is-mobile" href="#%E8%BF%9B%E5%BA%A6%EF%BC%9A%E4%B8%8A%E7%AF%87-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E3%80%90%E5%AE%8C%E3%80%91"><span>进度：上篇 第二章【完】</span></a></li><li><a class="is-flex is-mobile" href="#%E4%B8%8A%E7%AF%87%EF%BC%9A%E5%86%85%E5%AD%98%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span>上篇：内存与垃圾回收</span></a></li><li><a class="is-flex is-mobile" href="#%E4%B8%80%E3%80%81jvm%E4%B8%8Ejava%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span>一、JVM与JAVA体系结构</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#1.java%E4%B8%8Ejvm"><span>1.JAVA与JVM</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#java%E5%A4%A7%E4%BA%8B%E4%BB%B6"><span>Java大事件</span></a></li><li><a class="is-flex is-mobile" href="#jvm%E4%BB%8B%E7%BB%8D"><span>JVM介绍</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#jvm%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84"><span>JVM整体结构</span></a></li><li><a class="is-flex is-mobile" href="#java%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span>Java代码执行流程</span></a></li><li><a class="is-flex is-mobile" href="#jvm%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B"><span>JVM架构模型</span></a></li><li><a class="is-flex is-mobile" href="#jvm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span>JVM生命周期</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E5%90%AF%E5%8A%A8"><span>启动</span></a></li><li><a class="is-flex is-mobile" href="#%E6%89%A7%E8%A1%8C"><span>执行</span></a></li><li><a class="is-flex is-mobile" href="#%E9%80%80%E5%87%BA"><span>退出</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#jvm%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span>JVM发展历程</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#sun-classic-vm"><span>SUN Classic VM</span></a></li><li><a class="is-flex is-mobile" href="#exact-vm"><span>Exact VM</span></a></li><li><a class="is-flex is-mobile" href="#hotspot%E5%8E%86%E5%8F%B2"><span>HotSpot历史</span></a></li><li><a class="is-flex is-mobile" href="#bea-%E7%9A%84jrockit"><span>BEA 的JRockit</span></a></li><li><a class="is-flex is-mobile" href="#ibm-%E7%9A%84j9"><span>IBM 的J9</span></a></li><li><a class="is-flex is-mobile" href="#kvm%E5%92%8Ccdc%2Fcl.dc-hotspot"><span>KVM和cDC/CL.DC Hotspot</span></a></li><li><a class="is-flex is-mobile" href="#azul-vm"><span>Azul VM</span></a></li><li><a class="is-flex is-mobile" href="#liquid-vm"><span>Liquid VM</span></a></li><li><a class="is-flex is-mobile" href="#apache-harmony"><span>Apache Harmony</span></a></li><li><a class="is-flex is-mobile" href="#microsoft-jvm"><span>Microsoft JVM</span></a></li><li><a class="is-flex is-mobile" href="#taobaojvm"><span>TaobaoJVM</span></a></li><li><a class="is-flex is-mobile" href="#dalvik-vm-%3A"><span>Dalvik VM :</span></a></li><li><a class="is-flex is-mobile" href="#graal-vm"><span>Graal VM</span></a></li></ul></li></ul></li><li><a class="is-flex is-mobile" href="#%E4%BA%8C%E3%80%81%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F"><span>二、类加载子系统</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#1.%E5%86%85%E5%AD%98%E7%AE%80%E5%9B%BE"><span>1.内存简图</span></a></li><li><a class="is-flex is-mobile" href="#2.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span>2.类加载器</span></a></li><li><a class="is-flex is-mobile" href="#3.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8classloader%E8%A7%92%E8%89%B2"><span>3.类加载器ClassLoader角色</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E8%8E%B7%E5%8F%96classloader%E9%80%94%E7%BB%8F"><span>获取ClassLoader途经</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#4.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span>4.类加载过程</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E5%8A%A0%E8%BD%BD(loading)%3A"><span>加载(Loading):</span></a></li><li><a class="is-flex is-mobile" href="#%E8%A7%A3%E6%9E%90(resolve)-%3A"><span>解析(Resolve) :</span></a></li><li><a class="is-flex is-mobile" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%3A"><span>初始化:</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#5.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%88%86%E7%B1%BB"><span>5.类加载器分类</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%C2%B7%E5%90%AF%E5%8A%A8%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%88%E5%BC%95%E5%AF%BC%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8Cbootstrap-classloader)"><span>·启动类加载器（引导类加载器，Bootstrap classLoader)</span></a></li><li><a class="is-flex is-mobile" href="#%C2%B7%E6%89%A9%E5%B1%95%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%88extension-classloader)"><span>·扩展类加载器（Extension ClassLoader)</span></a></li><li><a class="is-flex is-mobile" href="#%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4%3A"><span>用户自定义类加载器实现步骤:</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#6.%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span>6.双亲委派机制</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span>工作原理</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E4%BC%98%E5%8A%BF"><span>双亲委派优势</span></a></li><li><a class="is-flex is-mobile" href="#%E6%B2%99%E7%AE%B1%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span>沙箱安全机制</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#7.%E5%85%B6%E4%BB%96"><span>7.其他</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E5%AF%B9%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%85%B6%E7%9A%84%E5%BC%95%E7%94%A8"><span>对类加载其的引用</span></a></li><li><a class="is-flex is-mobile" href="#%E7%B1%BB%E7%9A%84%E4%B8%BB%E5%8A%A8%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A2%AB%E5%8A%A8%E4%BD%BF%E7%94%A8"><span>类的主动使用和被动使用</span></a></li></ul></li></ul></li><li><a class="is-flex is-mobile" href="#%E4%B8%89%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%BA%BF!%E7%A8%8B"><span>三、运行时数据区概述及线!程</span></a></li><li><a class="is-flex is-mobile" href="#%E5%9B%9B%E3%80%81%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span>四、程序计数器</span></a></li><li><a class="is-flex is-mobile" href="#%E4%BA%94%E3%80%81%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span>五、虚拟机栈</span></a></li><li><a class="is-flex is-mobile" href="#%E5%85%AD%E3%80%81%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%8E%A5%E5%8F%A3"><span>六、本地方法接口</span></a></li><li><a class="is-flex is-mobile" href="#%E4%B8%83%E3%80%81%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88."><span>七、本地方法栈.</span></a></li><li><a class="is-flex is-mobile" href="#%E5%85%AB%E3%80%81%E5%A0%86"><span>八、堆</span></a></li><li><a class="is-flex is-mobile" href="#%E4%B9%9D%E3%80%81%E6%96%B9%E6%B3%95%E5%8C%BA"><span>九、方法区</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E3%80%81%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span>十、直接内存</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E"><span>十一、执行引擎</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E4%BA%8C%E3%80%81stringtable"><span>十二、StringTable</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0"><span>十三、垃圾回收概述</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95"><span>十四、垃圾回收相关算法</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span>十五、垃圾回收相关概念</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span>十六、垃圾回收器</span></a></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg" alt="魑魅先生"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">魑魅先生</p><p class="is-size-6 is-block">尚未执佩剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>浙江-杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">39</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">57</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">29</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/MrDemonlxl" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/MrDemonlxl"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/MrDemonlxl"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="/714416426@qq.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Next" href="https://mrdemonlxl.github.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI5NDc0MDg1Mg==#wechat_redirect"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.jianshu.com/u/7b24074baf6a" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">简书</span></span><span class="level-right"><span class="level-item tag">www.jianshu.com</span></span></a></li><li><a class="level is-mobile" href="https://blog.csdn.net/qq_37862970" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">CSDN</span></span><span class="level-right"><span class="level-item tag">blog.csdn.net</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2022/02/24/Draft/2021/Java%E5%9F%BA%E7%A1%80%E6%B7%B1%E5%85%A5/"><img src="https://gitee.com/mychimei/picture/raw/master/oxxw29.jpg" alt="Java基础深入"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-02-24T14:10:43.000Z">2022-02-24</time></p><p class="title"><a href="/2022/02/24/Draft/2021/Java%E5%9F%BA%E7%A1%80%E6%B7%B1%E5%85%A5/">Java基础深入</a></p><p class="categories"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a> / <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/">Java</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2022/02/24/Draft/2021/TODO/"><img src="https://gitee.com/mychimei/picture/raw/master/oxxw29.jpg" alt="TODO"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-02-24T14:10:43.000Z">2022-02-24</time></p><p class="title"><a href="/2022/02/24/Draft/2021/TODO/">TODO</a></p><p class="categories"><a href="/categories/%E5%BE%85%E5%8A%9E/">待办</a> / <a href="/categories/%E5%BE%85%E5%8A%9E/Everyday-TODO/">Everyday-TODO</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2022/02/24/Draft/2021/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><img src="https://gitee.com/mychimei/picture/raw/master/oxxw29.jpg" alt="数据库设计"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-02-24T14:10:43.000Z">2022-02-24</time></p><p class="title"><a href="/2022/02/24/Draft/2021/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/">数据库设计</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a> / <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/">数据库设计</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2022/02/24/Draft/2021/MYSQL%E4%BC%98%E5%8C%96/"><img src="https://gitee.com/mychimei/picture/raw/master/oxxw29.jpg" alt="MYSQL优化"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-02-24T14:10:43.000Z">2022-02-24</time></p><p class="title"><a href="/2022/02/24/Draft/2021/MYSQL%E4%BC%98%E5%8C%96/">MYSQL优化</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a> / <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MYSQL%E4%BC%98%E5%8C%96/">MYSQL优化</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/11/16/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"><img src="https://gitee.com/mychimei/picture/raw/master/39go6v.jpg" alt="JVM 与上层技术"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-11-16T10:45:58.345Z">2021-11-16</time></p><p class="title"><a href="/2021/11/16/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM 与上层技术</a></p><p class="categories"><a href="/categories/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/">工具教程</a> / <a href="/categories/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/%E4%B8%BB%E9%A2%98%E5%B7%A5%E5%85%B7/">主题工具</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/BUG%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">BUG记录</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/BUG%E8%AE%B0%E5%BD%95/BUG/"><span class="level-start"><span class="level-item">BUG</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/English/"><span class="level-start"><span class="level-item">English</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/English/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">程序员英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/JAVA%E5%BA%94%E7%94%A8/"><span class="level-start"><span class="level-item">JAVA应用</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/JAVA%E5%BA%94%E7%94%A8/%E4%B8%9A%E5%8A%A1%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">业务技术</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Spring/SpringCloud/"><span class="level-start"><span class="level-item">SpringCloud</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"><span class="level-start"><span class="level-item">中间件</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/"><span class="level-start"><span class="level-item">Dubbo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/"><span class="tag">工具教程</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BUG/"><span class="tag">BUG</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tag">前端</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Dubbo/"><span class="tag">Dubbo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/English/"><span class="tag">English</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NO-GAME-NO-LIFE/"><span class="tag">NO GAME NO LIFE</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span class="tag">Python学习</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RabbitMQ/"><span class="tag">RabbitMQ</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Redis/"><span class="tag">Redis</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Software-Engineer/"><span class="tag">Software Engineer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SpringCloud/"><span class="tag">SpringCloud</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B9%A6%E5%BD%B1%E9%9F%B3/"><span class="tag">书影音</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/"><span class="tag">信息系统项目管理师</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%81%A5%E8%BA%AB%E5%A4%96%E5%9E%8B/"><span class="tag">健身外型</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"><span class="tag">学习方法</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%85%E5%8A%9E/"><span class="tag">待办</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="tag">微信小程序</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BF%AB%E6%9F%A5/"><span class="tag">快查</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=mrdemonlxlFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="mrdemonlxlFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://gitee.com/mychimei/picture/raw/master/彩色logo.png" alt="魑魅先生" height="28"></a><p class="size-small"><span>&copy; 2021 魑魅先生</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/" target="_blank">川ICP备88888888号-8</a><br></span><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2021/02/18 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="3071252637" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('20ef8321698ab8c0c37b','4faa4daae14b55afd2ed357fba92d1e9c7c3f729','MrDemonlxl','MrDemonlxl.github.io',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(true){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('20ef8321698ab8c0c37b','4faa4daae14b55afd2ed357fba92d1e9c7c3f729','MrDemonlxl','MrDemonlxl.github.io',false);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>
