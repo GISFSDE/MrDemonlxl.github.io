@@ -1,80 +1,777 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Nginx - 魑魅先生</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="魑魅先生"><meta name="msapplication-TileImage" content="https://gitee.com/mychimei/picture/raw/master/透明头像.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="魑魅先生"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="Nginx(&amp;quot;engine x&amp;quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP&amp;#x2F;POP3&amp;#x2F;SMTP 代理服务器。 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。"><meta property="og:type" content="blog"><meta property="og:title" content="魑魅先生"><meta property="og:url" content="https://mrdemonlxl.github.io/"><meta property="og:site_name" content="魑魅先生"><meta property="og:description" content="Nginx(&amp;quot;engine x&amp;quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP&amp;#x2F;POP3&amp;#x2F;SMTP 代理服务器。 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg"><meta property="article:published_time" content="2021-02-24T14:10:43.000Z"><meta property="article:modified_time" content="2021-05-28T09:03:40.000Z"><meta property="article:author" content="mrdemonlxl"><meta property="article:tag" content="Nginx"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/"},"headline":"魑魅先生","image":["https://gitee.com/mychimei/picture/raw/master/xlzo5o.jpg"],"datePublished":"2021-02-24T14:10:43.000Z","dateModified":"2021-05-28T09:03:40.000Z","author":{"@type":"Person","name":"魑魅先生"},"description":"Nginx(&quot;engine x&quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP&#x2F;POP3&#x2F;SMTP 代理服务器。 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。"}</script><link rel="canonical" href="http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/"><link rel="icon" href="https://gitee.com/mychimei/picture/raw/master/透明头像.png"><meta name="referrer" content="no-referrer"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://gitee.com/mychimei/picture/raw/master/彩色logo.png" alt="魑魅先生" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/friend">友链</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/self-talking">碎碎念</a><a class="navbar-item" href="/music">音乐</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://gitee.com/mychimei/picture/raw/master/xlzo5o.jpg" alt="Nginx"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2021-02-24  <a class="commentCountImg" href="/2021/02/24/Draft/2021/Nginx/#comment-container"><span class="display-none-class">2a0a543e71fc05bc31cefa12c7eaa838</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="2a0a543e71fc05bc31cefa12c7eaa838">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>12 分钟  <i class="fas fa-pencil-alt"> </i>1.8 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Nginx</h1><div class="content"><p>Nginx(&quot;engine x&quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。</p>
-<p>在高连接并发的情况下，Nginx是Apache服务器不错的替代品。</p>
-<a id="more"></a>
-<h1 id="%E4%B8%8B%E8%BD%BD"><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">下载</a></h1>
-<h1 id="%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2">安装部署</h1>
-<p>​		解压后不要直接点击exe，会导致修改配置后重启、停止nginx无效，需要手动关闭任务管理器内的所有nginx进程，再启动才可以。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">start nginx<span class="comment">//启动服务</span></span><br><span class="line">nginx -s reload<span class="comment">//重新加载配置并启动</span></span><br><span class="line">nginx -s stop<span class="comment">//  快速停止</span></span><br><span class="line">nginx -s quit<span class="comment">//完整有序的关闭</span></span><br><span class="line">nginx -t  <span class="comment">// 检查配置是否正确</span></span><br></pre></td></tr></table></figure>
-<h1 id="%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89nginx.conf">配置自定义nginx.conf</h1>
-<p>指令必须以分号结束</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#user  nobody;</span></span><br><span class="line"></span><br><span class="line">#==工作进程数，一般设置为cpu核心数</span><br><span class="line">worker_processes  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">#error_log  logs/error.<span class="built_in">log</span>;</span><br><span class="line">#error_log  logs/error.<span class="built_in">log</span>  notice;</span><br><span class="line">#error_log  logs/error.<span class="built_in">log</span>  info;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line"></span><br><span class="line">    #==最大连接数，一般设置为cpu*<span class="number">2048</span></span><br><span class="line">    worker_connections  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">    #                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">    #                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.<span class="built_in">log</span>  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    #==客户端链接超时时间</span><br><span class="line">    keepalive_timeout  <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">    #当配置多个server节点时，默认server names的缓存区大小就不够了，需要手动设置大一点</span><br><span class="line">    server_names_hash_bucket_size <span class="number">512</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#server表示虚拟主机可以理解为一个站点，可以配置多个server节点搭建多个站点</span></span><br><span class="line">    #每一个请求进来确定使用哪个server由server_name确定</span><br><span class="line">    server &#123;</span><br><span class="line">        #站点监听端口</span><br><span class="line">        listen       <span class="number">8800</span>;</span><br><span class="line">        #站点访问域名</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        </span><br><span class="line">        #编码格式，避免url参数乱码</span><br><span class="line">        charset utf<span class="number">-8</span>;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.<span class="built_in">log</span>  main;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#location用来匹配同一域名下多个URI的访问规则</span></span><br><span class="line">        #比如动态资源如何跳转，静态资源如何跳转等</span><br><span class="line">        <span class="meta">#location后面跟着的/代表匹配规则</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            #站点根目录，可以是相对路径，也可以使绝对路径</span><br><span class="line">            root   html;</span><br><span class="line">            #默认主页</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">            </span><br><span class="line">            #转发后端站点地址，一般用于做软负载，轮询后端服务器</span><br><span class="line">            #proxy_pass http:<span class="comment">//10.11.12.237:8080;</span></span><br><span class="line"></span><br><span class="line">            #拒绝请求，返回<span class="number">403</span>，一般用于某些目录禁止访问</span><br><span class="line">            <span class="meta">#deny all;</span></span><br><span class="line">            </span><br><span class="line">            #允许请求</span><br><span class="line">            <span class="meta">#allow all;</span></span><br><span class="line">            </span><br><span class="line">            add_header &#x27;Access-Control-Allow-Origin&#x27; &#x27;*&#x27;;</span><br><span class="line">            add_header &#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27;;</span><br><span class="line">            add_header &#x27;Access-Control-Allow-Methods&#x27; &#x27;GET, POST, OPTIONS&#x27;;</span><br><span class="line">            add_header &#x27;Access-Control-Allow-Headers&#x27; &#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&#x27;;</span><br><span class="line">            #重新定义或者添加发往后端服务器的请求头</span><br><span class="line">            #给请求头中添加客户请求主机名</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            #给请求头中添加客户端IP</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            #将$remote_addr变量值添加在客户端“X-Forwarded-For”请求头的后面，并以逗号分隔。 如果客户端请求未携带“X-Forwarded-For”请求头，$proxy_add_x_forwarded_for变量值将与$remote_addr变量相同  </span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            #给请求头中添加客户端的Cookie</span><br><span class="line">            proxy_set_header Cookie $http_cookie;</span><br><span class="line">            #将使用代理服务器的主域名和端口号来替换。如果端口是<span class="number">80</span>，可以不加。</span><br><span class="line">            proxy_redirect off;</span><br><span class="line">            </span><br><span class="line">            #浏览器对 Cookie 有很多限制，如果 Cookie 的 Domain 部分与当前页面的 Domain 不匹配就无法写入。</span><br><span class="line">            #所以如果请求 A 域名，服务器 proxy_pass 到 B 域名，然后 B 服务器输出 Domian=B 的 Cookie，</span><br><span class="line">            #前端的页面依然停留在 A 域名上，于是浏览器就无法将 Cookie 写入。</span><br><span class="line">            </span><br><span class="line">　　         #不仅是域名，浏览器对 Path 也有限制。我们经常会 proxy_pass 到目标服务器的某个 Path 下，</span><br><span class="line">            #不把这个 Path 暴露给浏览器。这时候如果目标服务器的 Cookie 写死了 Path 也会出现 Cookie 无法写入的问题。</span><br><span class="line">            </span><br><span class="line">            #设置“Set-Cookie”响应头中的domain属性的替换文本，其值可以为一个字符串、正则表达式的模式或一个引用的变量</span><br><span class="line">            #转发后端服务器如果需要Cookie则需要将cookie domain也进行转换，否则前端域名与后端域名不一致cookie就会无法存取</span><br><span class="line">　　　　　　  #配置规则：proxy_cookie_domain serverDomain(后端服务器域) nginxDomain(nginx服务器域)</span><br><span class="line">            proxy_cookie_domain localhost .testcaigou800.com;</span><br><span class="line">            </span><br><span class="line">            #取消当前配置级别的所有proxy_cookie_domain指令</span><br><span class="line">            #proxy_cookie_domain off;</span><br><span class="line">            #与后端服务器建立连接的超时时间。一般不可能大于<span class="number">75</span>秒；</span><br><span class="line">            proxy_connect_timeout <span class="number">30</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #error_page  <span class="number">404</span>              /<span class="number">404.</span>html;</span><br><span class="line"></span><br><span class="line">        <span class="meta"># redirect server <span class="meta-keyword">error</span> pages to the static page /50x.html</span></span><br><span class="line">        #</span><br><span class="line">        error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">        location = /<span class="number">50</span>x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">　　#当需要对同一端口监听多个域名时，使用如下配置，端口相同域名不同，server_name也可以使用正则进行配置</span><br><span class="line">　　#但要注意server过多需要手动扩大server_names_hash_bucket_size缓存区大小</span><br><span class="line">　　server &#123;</span><br><span class="line">　　　　listen <span class="number">80</span>;</span><br><span class="line">　　　　server_name www.abc.com;</span><br><span class="line">　　　　charset utf<span class="number">-8</span>;</span><br><span class="line">　　　　location / &#123;</span><br><span class="line">　　　　　　proxy_pass http:<span class="comment">//localhost:10001;</span></span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　server &#123;</span><br><span class="line">　　　　listen <span class="number">80</span>;</span><br><span class="line">　　　　server_name aaa.abc.com;</span><br><span class="line">　　　　charset utf<span class="number">-8</span>;</span><br><span class="line">　　　　location / &#123;</span><br><span class="line">　　　　　　proxy_pass http:<span class="comment">//localhost:20002;</span></span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="%E5%8A%9F%E8%83%BD">功能</h1>
-<p>1）反向代理</p>
-<pre><code>   正向代理：特定情况下，代理用户访问服务器，需要用户手动的设置代理服务器的ip和端口号。
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta>
+    <title>Nginx - 魑魅先生</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="application-name" content="魑魅先生">
+    <meta name="msapplication-TileImage" content="http://rcy276gfy.hd-bkt.clouddn.com/透明头像.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="魑魅先生">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta
+        description="Nginx(&amp;quot;engine x&amp;quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP&amp;#x2F;POP3&amp;#x2F;SMTP 代理服务器。 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="魑魅先生">
+    <meta property="og:url" content="https://mrdemonlxl.github.io/">
+    <meta property="og:site_name" content="魑魅先生">
+    <meta property="og:description"
+        content="Nginx(&amp;quot;engine x&amp;quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP&amp;#x2F;POP3&amp;#x2F;SMTP 代理服务器。 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="http://rcy276gfy.hd-bkt.clouddn.com/微信图片_20210131173244.jpg">
+    <meta property="article:published_time" content="2021-02-24T14:10:43.000Z">
+    <meta property="article:modified_time" content="2022-06-04T10:20:22.876Z">
+    <meta property="article:author" content="mrdemonlxl">
+    <meta property="article:tag" content="Nginx">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="http://rcy276gfy.hd-bkt.clouddn.com/微信图片_20210131173244.jpg">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/"},"headline":"魑魅先生","image":["http://rcy276gfy.hd-bkt.clouddn.com/xlzo5o.jpg"],"datePublished":"2021-02-24T14:10:43.000Z","dateModified":"2022-06-04T10:20:22.876Z","author":{"@type":"Person","name":"魑魅先生"},"description":"Nginx(&quot;engine x&quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP&#x2F;POP3&#x2F;SMTP 代理服务器。 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。"}</script>
+    <link rel="canonical" href="http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/">
+    <link rel="icon" href="http://rcy276gfy.hd-bkt.clouddn.com/透明头像.png">
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css">
+    <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/globalUtils.js"></script>
+    <style>
+        body>.footer,
+        body>.navbar,
+        body>.section {
+            opacity: 0
+        }
+    </style>
+    <!--!-->
+    <!--!-->
+    <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+    <!--!-->
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+    <!--!-->
+    <!--!-->
+    <script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <link rel="stylesheet" href="/live2d/waifu.css">
+    <script type="text/javascript" async src="/live2d/autoload.js"></script>
+    <meta name="generator" content="Hexo 5.3.0">
+</head>
+
+<body class="is-3-column has-navbar-fixed-top">
+    <nav class="navbar navbar-main is-fixed-top">
+        <div class="container">
+            <div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img
+                        src="http://rcy276gfy.hd-bkt.clouddn.com/彩色logo.png" alt="魑魅先生" height="28"></a></div>
+            <div class="navbar-menu">
+                <div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item"
+                        href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item"
+                        href="/tags">标签</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item"
+                        href="/friend">友链</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item"
+                        href="/self-talking">碎碎念</a><a class="navbar-item" href="/music">音乐</a><a class="navbar-item"
+                        href="/media">影音</a><a class="navbar-item" href="/about">关于</a></div>
+                <div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter"
+                        href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a
+                        class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub"
+                        href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a
+                        class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i
+                            class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索"
+                        href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav"
+                        title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div>
+            </div>
+        </div>
+    </nav>
+    <script type="text/javascript" src="/js/theme-setting.js"></script>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen">
+                    <!--!-->
+                    <div class="card">
+                        <div class="card-image"><span class="image is-7by3"><img class="fill"
+                                    src="http://rcy276gfy.hd-bkt.clouddn.com/xlzo5o.jpg" alt="Nginx"></span></div>
+                        <article class="card-content article" role="article">
+                            <div class="article-meta size-small is-uppercase level is-mobile">
+                                <div class="level-left"><i class="far fa-calendar-plus"> </i>2021-02-24  <a
+                                        class="commentCountImg"
+                                        href="/2021/02/24/Draft/2021/Nginx/#comment-container"><span
+                                            class="display-none-class">2a0a543e71fc05bc31cefa12c7eaa838</span><i
+                                            class="far fa-comment-dots"></i> <span class="commentCount"
+                                            id="2a0a543e71fc05bc31cefa12c7eaa838">99+</span>  </a><span
+                                        class="level-item"><i class="far fa-clock"> </i>14 分钟  <i
+                                            class="fas fa-pencil-alt"> </i>2.1 k</span><span class="level-item"
+                                        id="busuanzi_container_page_pv"><span
+                                            id="busuanzi_value_page_pv">0</span>次访问</span></div>
+                            </div>
+                            <h1 class="title is-3 is-size-4-mobile">Nginx</h1>
+                            <div class="content">
+                                <p>Nginx(&quot;engine x&quot;)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个
+                                    IMAP/POP3/SMTP 代理服务器。</p>
+                                <p>在高连接并发的情况下，Nginx是Apache服务器不错的替代品。</p>
+                                <a id="more"></a>
+                                <h1 id="%E4%B8%8B%E8%BD%BD"><a target="_blank" rel="noopener"
+                                        href="http://nginx.org/en/download.html">下载</a></h1>
+                                <h1 id="%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2">安装部署</h1>
+                                <p>​ 解压后不要直接点击exe，会导致修改配置后重启、停止nginx无效，需要手动关闭任务管理器内的所有nginx进程，再启动才可以。</p>
+                                <figure class="highlight c">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line">start nginx<span class="comment">//启动服务</span></span><br><span class="line">nginx -s reload<span class="comment">//重新加载配置并启动</span></span><br><span class="line">nginx -s stop<span class="comment">//  快速停止</span></span><br><span class="line">nginx -s quit<span class="comment">//完整有序的关闭</span></span><br><span class="line">nginx -t  <span class="comment">// 检查配置是否正确</span></span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89nginx.conf">配置自定义nginx.conf</h1>
+                                <p>指令必须以分号结束</p>
+                                <figure class="highlight properties">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line"><span class="comment">#user  nobody;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#==工作进程数，一般设置为cpu核心数</span></span><br><span class="line"><span class="attr">worker_processes</span>  <span class="string">1;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">events</span> <span class="string">&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #==最大连接数，一般设置为cpu*2048</span></span><br><span class="line">    <span class="attr">worker_connections</span>  <span class="string">1024;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">http</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="attr">include</span>       <span class="string">mime.types;</span></span><br><span class="line">    <span class="attr">default_type</span>  <span class="string">application/octet-stream;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line"><span class="comment">    #                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line"><span class="comment">    #                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">sendfile</span>        <span class="string">on;</span></span><br><span class="line"><span class="comment">    #tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #keepalive_timeout  0;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">    #==客户端链接超时时间</span></span><br><span class="line">    <span class="attr">keepalive_timeout</span>  <span class="string">65;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #gzip  on;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #当配置多个server节点时，默认server names的缓存区大小就不够了，需要手动设置大一点</span></span><br><span class="line">    <span class="attr">server_names_hash_bucket_size</span> <span class="string">512;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #server表示虚拟主机可以理解为一个站点，可以配置多个server节点搭建多个站点</span></span><br><span class="line"><span class="comment">    #每一个请求进来确定使用哪个server由server_name确定</span></span><br><span class="line">    <span class="attr">server</span> <span class="string">&#123;</span></span><br><span class="line"><span class="comment">        #站点监听端口</span></span><br><span class="line">        <span class="attr">listen</span>       <span class="string">8800;</span></span><br><span class="line"><span class="comment">        #站点访问域名</span></span><br><span class="line">        <span class="attr">server_name</span>  <span class="string">localhost;</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">        #编码格式，避免url参数乱码</span></span><br><span class="line">        <span class="attr">charset</span> <span class="string">utf-8;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        #access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        #location用来匹配同一域名下多个URI的访问规则</span></span><br><span class="line"><span class="comment">        #比如动态资源如何跳转，静态资源如何跳转等</span></span><br><span class="line"><span class="comment">        #location后面跟着的/代表匹配规则</span></span><br><span class="line">        <span class="attr">location</span> <span class="string">/ &#123;</span></span><br><span class="line"><span class="comment">            #站点根目录，可以是相对路径，也可以使绝对路径</span></span><br><span class="line">            <span class="attr">root</span>   <span class="string">html;</span></span><br><span class="line"><span class="comment">            #默认主页</span></span><br><span class="line">            <span class="attr">index</span>  <span class="string">index.html index.htm;</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #转发后端站点地址，一般用于做软负载，轮询后端服务器</span></span><br><span class="line"><span class="comment">            #proxy_pass http://11.11.11.11:8080;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">            #拒绝请求，返回403，一般用于某些目录禁止访问</span></span><br><span class="line"><span class="comment">            #deny all;</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #允许请求</span></span><br><span class="line"><span class="comment">            #allow all;</span></span><br><span class="line">            </span><br><span class="line">            <span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Origin&#x27; &#x27;*&#x27;;</span></span><br><span class="line">            <span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27;;</span></span><br><span class="line">            <span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Methods&#x27; &#x27;GET, POST, OPTIONS&#x27;;</span></span><br><span class="line">            <span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Headers&#x27; &#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&#x27;;</span></span><br><span class="line"><span class="comment">            #重新定义或者添加发往后端服务器的请求头</span></span><br><span class="line"><span class="comment">            #给请求头中添加客户请求主机名</span></span><br><span class="line">            <span class="attr">proxy_set_header</span> <span class="string">Host $host;</span></span><br><span class="line"><span class="comment">            #给请求头中添加客户端IP</span></span><br><span class="line">            <span class="attr">proxy_set_header</span> <span class="string">X-Real-IP $remote_addr;</span></span><br><span class="line"><span class="comment">            #将$remote_addr变量值添加在客户端“X-Forwarded-For”请求头的后面，并以逗号分隔。 如果客户端请求未携带“X-Forwarded-For”请求头，$proxy_add_x_forwarded_for变量值将与$remote_addr变量相同  </span></span><br><span class="line">            <span class="attr">proxy_set_header</span> <span class="string">X-Forwarded-For $proxy_add_x_forwarded_for;</span></span><br><span class="line"><span class="comment">            #给请求头中添加客户端的Cookie</span></span><br><span class="line">            <span class="attr">proxy_set_header</span> <span class="string">Cookie $http_cookie;</span></span><br><span class="line"><span class="comment">            #将使用代理服务器的主域名和端口号来替换。如果端口是80，可以不加。</span></span><br><span class="line">            <span class="attr">proxy_redirect</span> <span class="string">off;</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #浏览器对 Cookie 有很多限制，如果 Cookie 的 Domain 部分与当前页面的 Domain 不匹配就无法写入。</span></span><br><span class="line"><span class="comment">            #所以如果请求 A 域名，服务器 proxy_pass 到 B 域名，然后 B 服务器输出 Domian=B 的 Cookie，</span></span><br><span class="line"><span class="comment">            #前端的页面依然停留在 A 域名上，于是浏览器就无法将 Cookie 写入。</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">　　         #不仅是域名，浏览器对 Path 也有限制。我们经常会 proxy_pass 到目标服务器的某个 Path 下，</span></span><br><span class="line"><span class="comment">            #不把这个 Path 暴露给浏览器。这时候如果目标服务器的 Cookie 写死了 Path 也会出现 Cookie 无法写入的问题。</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #设置“Set-Cookie”响应头中的domain属性的替换文本，其值可以为一个字符串、正则表达式的模式或一个引用的变量</span></span><br><span class="line"><span class="comment">            #转发后端服务器如果需要Cookie则需要将cookie domain也进行转换，否则前端域名与后端域名不一致cookie就会无法存取</span></span><br><span class="line"><span class="comment">　　　　　　  #配置规则：proxy_cookie_domain serverDomain(后端服务器域) nginxDomain(nginx服务器域)</span></span><br><span class="line">            <span class="attr">proxy_cookie_domain</span> <span class="string">localhost .testcaigou800.com;</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #取消当前配置级别的所有proxy_cookie_domain指令</span></span><br><span class="line"><span class="comment">            #proxy_cookie_domain off;</span></span><br><span class="line"><span class="comment">            #与后端服务器建立连接的超时时间。一般不可能大于75秒；</span></span><br><span class="line">            <span class="attr">proxy_connect_timeout</span> <span class="string">30;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        #error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        # redirect server error pages to the static page /50x.html</span></span><br><span class="line"><span class="comment">        #</span></span><br><span class="line">        <span class="attr">error_page</span>   <span class="string">500 502 503 504  /50x.html;</span></span><br><span class="line">        <span class="attr">location</span> = <span class="string">/50x.html &#123;</span></span><br><span class="line">            <span class="attr">root</span>   <span class="string">html;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">　　#当需要对同一端口监听多个域名时，使用如下配置，端口相同域名不同，server_name也可以使用正则进行配置</span></span><br><span class="line"><span class="comment">　　#但要注意server过多需要手动扩大server_names_hash_bucket_size缓存区大小</span></span><br><span class="line"><span class="meta">　　server</span> <span class="string">&#123;</span></span><br><span class="line"><span class="meta">　　　　listen</span> <span class="string">80;</span></span><br><span class="line"><span class="meta">　　　　server_name</span> <span class="string">www.abc.com;</span></span><br><span class="line"><span class="meta">　　　　charset</span> <span class="string">utf-8;</span></span><br><span class="line"><span class="meta">　　　　location</span> <span class="string">/ &#123;</span></span><br><span class="line"><span class="meta">　　　　　　proxy_pass</span> <span class="string">http://localhost:10001;</span></span><br><span class="line"><span class="attr">　　　　&#125;</span></span><br><span class="line"><span class="attr">　　&#125;</span></span><br><span class="line"><span class="meta">　　server</span> <span class="string">&#123;</span></span><br><span class="line"><span class="meta">　　　　listen</span> <span class="string">80;</span></span><br><span class="line"><span class="meta">　　　　server_name</span> <span class="string">aaa.abc.com;</span></span><br><span class="line"><span class="meta">　　　　charset</span> <span class="string">utf-8;</span></span><br><span class="line"><span class="meta">　　　　location</span> <span class="string">/ &#123;</span></span><br><span class="line"><span class="meta">　　　　　　proxy_pass</span> <span class="string">http://localhost:20002;</span></span><br><span class="line"><span class="attr">　　　　&#125;</span></span><br><span class="line"><span class="attr">　　&#125;</span></span><br><span class="line"><span class="comment">    #配置 https   跨域解决</span></span><br><span class="line">    <span class="attr">server</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="attr">listen</span>       <span class="string">86 ssl;</span></span><br><span class="line">        <span class="attr">server_name</span>  <span class="string">xxx.xxx.com;</span></span><br><span class="line">		</span><br><span class="line">		<span class="attr">ssl_certificate</span> <span class="string">E://soft//nginx-1.20.1//key_pem//7585805__hzsgis.com.pem;</span></span><br><span class="line">		<span class="attr">ssl_certificate_key</span> <span class="string">E://soft//nginx-1.20.1//key_pem//7585805__hzsgis.com.key;</span></span><br><span class="line">		<span class="attr">ssl_session_cache</span> <span class="string">shared:SSL:1m;</span></span><br><span class="line">		<span class="attr">ssl_session_timeout</span> <span class="string">20m;</span></span><br><span class="line">		<span class="attr">ssl_ciphers</span> <span class="string">ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!aNULL:!MD5:!ADH:!RC4;</span></span><br><span class="line">		<span class="attr">ssl_protocols</span> <span class="string">TLSv1 TLSv1.1 TLSv1.2;</span></span><br><span class="line">		<span class="attr">ssl_prefer_server_ciphers</span> <span class="string">on;</span></span><br><span class="line"><span class="comment">        #charset koi8-r;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        #access_log  logs/host.access.log  main;</span></span><br><span class="line">		<span class="attr">root</span>      <span class="string">E:\lxl\Project\ghyzt\dist;</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">		<span class="attr">location</span> <span class="string">/ &#123;</span></span><br><span class="line">            <span class="attr">try_files</span> <span class="string">$uri $uri/ @router;</span></span><br><span class="line">            <span class="attr">index</span>  <span class="string">index.html index.htm;</span></span><br><span class="line">			<span class="attr">client_max_body_size</span> <span class="string">600m;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line">		</span><br><span class="line">		<span class="attr">location</span> <span class="string">@router &#123;</span></span><br><span class="line">		     <span class="attr">rewrite</span> <span class="string">^.*$ /index.html last;</span></span><br><span class="line">		<span class="attr">&#125;</span></span><br><span class="line">		</span><br><span class="line">        <span class="attr">location</span> <span class="string">^~/prod-api/ &#123;</span></span><br><span class="line">		<span class="attr">rewrite</span>  <span class="string">^/prod-api/(.*)$ /$1 break;</span></span><br><span class="line">		<span class="attr">add_header</span> <span class="string">Cache-Control &quot;no-catche,no-store&quot;;</span></span><br><span class="line">		<span class="attr">if</span> <span class="string">($request_method = &#x27;OPTIONS&#x27;) &#123;</span></span><br><span class="line">            	<span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Origin&#x27; &#x27;*&#x27;;</span></span><br><span class="line">            	<span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27;;</span></span><br><span class="line">            	<span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Methods&#x27; &#x27;GET, POST, PATCH, DELETE, PUT, OPTIONS&#x27;;</span></span><br><span class="line">             	<span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Headers&#x27; &#x27;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,  Access-Control-Expose-Headers, Token, Authorization&#x27;;</span></span><br><span class="line">            	<span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Max-Age&#x27; 1728000;</span></span><br><span class="line">            	<span class="attr">add_header</span> <span class="string">&#x27;Content-Type&#x27; &#x27;text/plain charset=UTF-8&#x27;;</span></span><br><span class="line">            	<span class="attr">add_header</span> <span class="string">&#x27;Content-Length&#x27; 0;</span></span><br><span class="line">            	<span class="attr">return</span> <span class="string">204;</span></span><br><span class="line">        	<span class="attr">&#125;</span></span><br><span class="line">        	<span class="attr">add_header</span> <span class="string">&#x27;Access-Control-Allow-Origin&#x27; &#x27;*&#x27;;</span></span><br><span class="line">            <span class="attr">proxy_pass</span> <span class="string">http://172.0.0.1:8086;</span></span><br><span class="line">            <span class="attr">proxy_buffering</span> <span class="string">off;</span></span><br><span class="line">            <span class="attr">proxy_request_buffering</span> <span class="string">off;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		<span class="attr">client_max_body_size</span> <span class="string">600m;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        #location / &#123;</span></span><br><span class="line"><span class="comment">            #root   html;</span></span><br><span class="line"><span class="comment">            #index  index.html index.htm;</span></span><br><span class="line"><span class="comment">        #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        #error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        # redirect server error pages to the static page /50x.html</span></span><br><span class="line"><span class="comment">        #</span></span><br><span class="line">        <span class="attr">error_page</span>   <span class="string">500 502 503 504  /50x.html;</span></span><br><span class="line">        <span class="attr">location</span> = <span class="string">/50x.html &#123;</span></span><br><span class="line">            <span class="attr">root</span>   <span class="string">html;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line"><span class="comment">        #</span></span><br><span class="line"><span class="comment">        #location ~ \.php$ &#123;</span></span><br><span class="line"><span class="comment">        #    proxy_pass   http://127.0.0.1;</span></span><br><span class="line"><span class="comment">        #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line"><span class="comment">        #</span></span><br><span class="line"><span class="comment">        #location ~ \.php$ &#123;</span></span><br><span class="line"><span class="comment">        #    root           html;</span></span><br><span class="line"><span class="comment">        #    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line"><span class="comment">        #    fastcgi_index  index.php;</span></span><br><span class="line"><span class="comment">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line"><span class="comment">        #    include        fastcgi_params;</span></span><br><span class="line"><span class="comment">        #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">        # deny access to .htaccess files, if Apache&#x27;s document root</span></span><br><span class="line"><span class="comment">        # concurs with nginx&#x27;s one</span></span><br><span class="line"><span class="comment">        #</span></span><br><span class="line"><span class="comment">        #location ~ /\.ht &#123;</span></span><br><span class="line"><span class="comment">        #    deny  all;</span></span><br><span class="line"><span class="comment">        #&#125;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="%E5%8A%9F%E8%83%BD">功能</h1>
+                                <h2 id="1%EF%BC%89%E6%AD%A3%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86" id="1）正反向代理">1）正反向代理
+                                </h2>
+                                <pre><code>   正向代理：特定情况下，代理用户访问服务器，需要用户手动的设置代理服务器的ip和端口号。
 
    反向代理：是用来代理服务器，代理用户要访问的目标服务器。代理服务器接受请求，然后将请求转发给内部网络的服务器(服务集群模式)，并将从服务器上得到的结果返回给客户端，此时代理服务器对外就表现为一个服务器。                            
 
     Nginx在反向代理上，提供灵活的功能，可以根据不同的正则采用不同的转发策略，如图设置好后不同的请求就可以走不同的服务器。
 </code></pre>
-<p>2）负载均衡</p>
-<pre><code>   负载均衡：多在高并发情况下需要使用。其原理就是将数据流量分摊到多个服务器执行，减轻每台服务器的压力，多台服务器(集群)共同完成工作任务，从而提高了数据的吞吐量。
+                                <h2 id="2%EF%BC%89%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" id="2）负载均衡">2）负载均衡</h2>
+                                <pre><code>   负载均衡：多在高并发情况下需要使用。其原理就是将数据流量分摊到多个服务器执行，减轻每台服务器的压力，多台服务器(集群)共同完成工作任务，从而提高了数据的吞吐量。
 
     Nginx可使用的负载均衡策略有：轮询（默认）、权重、ip_hash、url_hash(第三方)、fair(第三方)。
 </code></pre>
-<p>3）动静分离</p>
-<pre><code>   常用于前后端分离，Nginx提供的动静分离是指把动态请求和静态请求分离开，合适的服务器处理相应的请求，使整个服务器系统的性能、效率更高。
+                                <h2 id="3%EF%BC%89%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB" id="3）动静分离">3）动静分离</h2>
+                                <pre><code>   常用于前后端分离，Nginx提供的动静分离是指把动态请求和静态请求分离开，合适的服务器处理相应的请求，使整个服务器系统的性能、效率更高。
 
    Nginx可以根据配置对不同的请求做不同转发，这是动态分离的基础。静态请求对应的静态资源可以直接放在Nginx上做缓冲，更好的做法是放在相应的缓冲服务器上。动态请求由相应的后端服务器处理。
 </code></pre>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>Nginx</p><p><a href="http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/">http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="http://MrDemonlxl.github.io"><p>魑魅先生</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-02-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-05-28</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/2021/02/25/Draft/2021/%E5%BF%AB%E6%9F%A5/" target="_blank">快查</a><br></span><span>  2.<a class="is-size-6" href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/" target="_blank">JVM 与上层技术</a><br></span><span>  3.<a class="is-size-6" href="/2021/02/18/Draft/2021/%E4%BA%94%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BF%E5%8D%9A%E5%AE%A2/" target="_blank">五分钟搭建在线博客</a><br></span><span>  4.<a class="is-size-6" href="/2021/03/01/Draft/2021/%E5%89%8D%E7%AB%AF/" target="_blank">魑魅先生 | 前端</a><br></span><span>  5.<a class="is-size-6" href="/2021/03/01/Draft/2021/JAVA%E5%BA%94%E7%94%A8/" target="_blank">魑魅先生 | 业务技术</a><br></span><span>  6.<a class="is-size-6" href="/2021/03/01/Draft/2021/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">魑魅先生 | 设计模式</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://gitee.com/mychimei/picture/raw/master/1c4f12804cc5a92919acd743d93a869.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://gitee.com/mychimei/picture/raw/master/260e4f4bc9e4053108cd9d02bae7386.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/02/24/Draft/2021/BUG/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">BUG</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/02/24/Draft/2021/TODO/"><span class="level-item">TODO</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
-            var gitalk = new Gitalk({
-            language:'zh-CN',
-            id: '2a0a543e71fc05bc31cefa12c7eaa838',
-            repo: 'MrDemonlxl.github.io',
-            owner: 'MrDemonlxl',
-            clientID: '20ef8321698ab8c0c37b',
-            clientSecret: '4faa4daae14b55afd2ed357fba92d1e9c7c3f729',
-            admin: ["MrDemonlxl"],
-            createIssueManually: true,
-            distractionFreeMode: false,
-            perPage: 10,
-            pagerDirection: 'last',
-            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
-            
-            enableHotKey: true,
-            isLocked: false
-        })
-        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E4%B8%8B%E8%BD%BD"><span>下载</span></a></li><li><a class="is-flex is-mobile" href="#%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span>安装部署</span></a></li><li><a class="is-flex is-mobile" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89nginx.conf"><span>配置自定义nginx.conf</span></a></li><li><a class="is-flex is-mobile" href="#%E5%8A%9F%E8%83%BD"><span>功能</span></a></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg" alt="魑魅先生"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">魑魅先生</p><p class="is-size-6 is-block">快乐永远在解决问题的间隙里(*￣︶￣)</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>浙江-杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">54</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">82</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">41</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/MrDemonlxl" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/MrDemonlxl"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/MrDemonlxl"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="/714416426@qq.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Next" href="https://mrdemonlxl.github.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI5NDc0MDg1Mg==#wechat_redirect"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
-                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
-                                if(data){
-                                    $('#hitokoto').html("");
-                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
-                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
-                                }});}
-                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.jianshu.com/u/4af2d33dbe6f" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">简书</span></span><span class="level-right"><span class="level-item tag">www.jianshu.com</span></span></a></li><li><a class="level is-mobile" href="https://blog.csdn.net/qq_37862970" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">CSDN</span></span><span class="level-right"><span class="level-item tag">blog.csdn.net</span></span></a></li><li><a class="level is-mobile" href="https://github.com/MrDemonlxl" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"><img src="https://gitee.com/mychimei/picture/raw/master/39go6v.jpg" alt="JVM 与上层技术"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-11-10T14:10:43.000Z">2021-11-10</time></p><p class="title"><a href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM 与上层技术</a></p><p class="categories"><a href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/">底层学习</a> / <a href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/JVM-%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM 与上层技术</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/10/20/Draft/2021/MyBatis-Plus/"><img src="https://gitee.com/mychimei/picture/raw/master/webp.png" alt="MyBatis-Plus"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-10-20T14:10:43.000Z">2021-10-20</time></p><p class="title"><a href="/2021/10/20/Draft/2021/MyBatis-Plus/">MyBatis-Plus</a></p><p class="categories"><a href="/categories/Frame/">Frame</a> / <a href="/categories/Frame/MyBatis-Plus/">MyBatis-Plus</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/"><img src="https://gitee.com/mychimei/picture/raw/master/webp.png" alt="思维闪光"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-20T14:10:43.000Z">2021-07-20</time></p><p class="title"><a href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/">思维闪光</a></p><p class="categories"><a href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/">临时记录</a> / <a href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/%E6%80%9D%E7%BB%B4%E9%97%AA%E5%85%89/">思维闪光</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/"><img src="https://gitee.com/mychimei/picture/raw/master/webp1.png" alt="Python 学习"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-31T14:10:43.000Z">2021-05-31</time></p><p class="title"><a href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/">Python 学习</a></p><p class="categories"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a> / <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python%E5%AD%A6%E4%B9%A0/">Python学习</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/20/Draft/2021/%E5%BC%80%E5%8F%91%E4%BF%AE%E7%94%B5%E8%84%91/"><img src="https://gitee.com/mychimei/picture/raw/master/webp.png" alt="开发修电脑"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-20T14:10:43.000Z">2021-05-20</time></p><p class="title"><a href="/2021/05/20/Draft/2021/%E5%BC%80%E5%8F%91%E4%BF%AE%E7%94%B5%E8%84%91/">开发修电脑</a></p><p class="categories"><a href="/categories/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/">电脑知识</a> / <a href="/categories/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/%E5%BC%80%E5%8F%91%E4%BF%AE%E7%94%B5%E8%84%91/">开发修电脑</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/BUG%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">BUG记录</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/BUG%E8%AE%B0%E5%BD%95/BUG/"><span class="level-start"><span class="level-item">BUG</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/English/"><span class="level-start"><span class="level-item">English</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/English/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">程序员英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/"><span class="level-start"><span class="level-item">Frame</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Frame/MyBatis/"><span class="level-start"><span class="level-item">MyBatis</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/MyBatis-Plus/"><span class="level-start"><span class="level-item">MyBatis-Plus</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/SpringBoot/"><span class="level-start"><span class="level-item">SpringBoot</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/SpringCloud/"><span class="level-start"><span class="level-item">SpringCloud</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/10/"><span class="level-start"><span class="level-item">十月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/05/"><span class="level-start"><span class="level-item">五月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/"><span class="tag">工具教程</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Frame/"><span class="tag">Frame</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"><span class="tag">程序人生</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BUG/"><span class="tag">BUG</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tag">前端</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CRUD/"><span class="tag">CRUD</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Dubbo/"><span class="tag">Dubbo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/English/"><span class="tag">English</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MongoDB/"><span class="tag">MongoDB</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NO-GAME-NO-LIFE/"><span class="tag">NO GAME NO LIFE</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span class="tag">Python学习</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RabbitMQ/"><span class="tag">RabbitMQ</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Redis/"><span class="tag">Redis</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Software-Engineer/"><span class="tag">Software Engineer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SpringCloud/"><span class="tag">SpringCloud</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/"><span class="tag">临时记录</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B9%A6%E5%BD%B1%E9%9F%B3/"><span class="tag">书影音</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/"><span class="tag">信息系统项目管理师</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=mrdemonlxlFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="mrdemonlxlFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://gitee.com/mychimei/picture/raw/master/彩色logo.png" alt="魑魅先生" height="28"></a><p class="size-small"><span>&copy; 2022 魑魅先生</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/" target="_blank">川ICP备88888888号-8</a><br></span><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
-            var n = new Date(time);
-            now.setTime(now.getTime() + 250),
-                days = (now - n) / 1e3 / 60 / 60 / 24,
-                dnum = Math.floor(days),
-                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
-                hnum = Math.floor(hours),
-            1 == String(hnum).length && (hnum = "0" + hnum),
-                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
-                mnum = Math.floor(minutes),
-            1 == String(mnum).length && (mnum = "0" + mnum),
-                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
-                snum = Math.round(seconds),
-            1 == String(snum).length && (snum = "0" + snum),
-                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
-        }var now = new Date();setInterval("createTime('2021/02/18 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="3071252637" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+                                <script type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script>
+                                <script type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script>
+                                <script defer="true" type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script>
+                                <link rel="stylesheet" type="text/css"
+                                    href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+                            </div>
+                            <div class="article-licensing box">
+                                <div class="licensing-title">
+                                    <p>Nginx</p>
+                                    <p><a
+                                            href="http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/">http://mrdemonlxl.github.io/2021/02/24/Draft/2021/Nginx/</a>
+                                    </p>
+                                </div>
+                                <div class="licensing-meta level is-mobile">
+                                    <div class="level-left">
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>作者</h6><a href="http://MrDemonlxl.github.io">
+                                                    <p>魑魅先生</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>发布于</h6>
+                                                <p>2021-02-24</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>更新于</h6>
+                                                <p>2022-06-04</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>许可协议</h6>
+                                                <p><a class="icon" rel="noopener" target="_blank"
+                                                        title="Creative Commons" href="https://creativecommons.org/"><i
+                                                            class="fab fa-creative-commons"></i></a><a class="icon"
+                                                        rel="noopener" target="_blank" title="Attribution"
+                                                        href="https://creativecommons.org/licenses/by/4.0/"><i
+                                                            class="fab fa-creative-commons-by"></i></a><a class="icon"
+                                                        rel="noopener" target="_blank" title="Noncommercial"
+                                                        href="https://creativecommons.org/licenses/by-nc/4.0/"><i
+                                                            class="fab fa-creative-commons-nc"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommend-area">
+                                <div class="recommend-post"><span
+                                        class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a
+                                            class="is-size-6" href="/2021/02/25/Draft/2021/%E5%BF%AB%E6%9F%A5/"
+                                            target="_blank">快查</a><br></span><span>  2.<a class="is-size-6"
+                                            href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"
+                                            target="_blank">JVM 与上层技术</a><br></span><span>  3.<a class="is-size-6"
+                                            href="/2021/02/18/Draft/2021/%E4%BA%94%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BF%E5%8D%9A%E5%AE%A2/"
+                                            target="_blank">五分钟搭建在线博客</a><br></span><span>  4.<a class="is-size-6"
+                                            href="/2021/03/01/Draft/2021/%E5%89%8D%E7%AB%AF/" target="_blank">魑魅先生 |
+                                            前端</a><br></span><span>  5.<a class="is-size-6"
+                                            href="/2021/03/01/Draft/2021/JAVA%E5%BA%94%E7%94%A8/" target="_blank">魑魅先生 |
+                                            业务技术</a><br></span><span>  6.<a class="is-size-6"
+                                            href="/2021/03/01/Draft/2021/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
+                                            target="_blank">魑魅先生 | 设计模式</a><br></span></div>
+                            </div>
+                            <link rel="stylesheet"
+                                href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                            <div class="social-share"></div>
+                            <script
+                                src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+                            <div class="buttons is-centered"><a class="button donate" data-type="alipay"><span
+                                        class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span
+                                        class="qrcode"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/1c4f12804cc5a92919acd743d93a869.jpg"
+                                            alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span
+                                        class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span
+                                        class="qrcode"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/260e4f4bc9e4053108cd9d02bae7386.png"
+                                            alt="微信"></span></a></div>
+                        </div>
+                    </div>
+                    <nav class="post-navigation mt-4 level is-mobile">
+                        <div class="level-start"><a class="article-nav-prev level level-item link-muted"
+                                href="/2021/02/24/Draft/2021/BUG/"><i class="level-item fas fa-chevron-left"></i><span
+                                    class="level-item">BUG</span></a></div>
+                        <div class="level-end"><a class="article-nav-next level level-item link-muted"
+                                href="/2021/02/24/Draft/2021/TODO/"><span class="level-item">TODO</span><i
+                                    class="level-item fas fa-chevron-right"></i></a></div>
+                    </nav>
+                    <!--!-->
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="title is-5">评论</div>
+                            <div id="comment-container"></div>
+                            <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css">
+                            <script> $.getScript('/js/gitalk.min.js', function () {
+                                    var gitalk = new Gitalk({
+                                        language: 'zh-CN',
+                                        id: '2a0a543e71fc05bc31cefa12c7eaa838',
+                                        repo: 'MrDemonlxl.github.io',
+                                        owner: 'MrDemonlxl',
+                                        clientID: '20ef8321698ab8c0c37b',
+                                        clientSecret: '4faa4daae14b55afd2ed357fba92d1e9c7c3f729',
+                                        admin: ["MrDemonlxl"],
+                                        createIssueManually: true,
+                                        distractionFreeMode: false,
+                                        perPage: 10,
+                                        pagerDirection: 'last',
+                                        proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+
+                                        enableHotKey: true,
+                                        isLocked: false
+                                    })
+                                    gitalk.render('comment-container')
+                                });</script>
+                        </div>
+                    </div>
+                </div>
+                <div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky">
+                    <div class="card widget" id="toc" data-type="toc">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">目录</h3>
+                                <ul class="menu-list">
+                                    <li><a class="is-flex is-mobile" href="#%E4%B8%8B%E8%BD%BD"><span>下载</span></a></li>
+                                    <li><a class="is-flex is-mobile"
+                                            href="#%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span>安装部署</span></a></li>
+                                    <li><a class="is-flex is-mobile"
+                                            href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89nginx.conf"><span>配置自定义nginx.conf</span></a>
+                                    </li>
+                                    <li><a class="is-flex is-mobile" href="#%E5%8A%9F%E8%83%BD"><span>功能</span></a>
+                                        <ul class="menu-list">
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#1%EF%BC%89%E6%AD%A3%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span>1）正反向代理</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#2%EF%BC%89%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span>2）负载均衡</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#3%EF%BC%89%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB"><span>3）动静分离</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <style>
+                            .menu-list>li>a.is-active+.menu-list {
+                                display: block;
+                            }
+
+                            .menu-list>li>a+.menu-list {
+                                display: none;
+                            }
+                        </style>
+                        <script src="/js/toc.js" defer></script>
+                    </div>
+                    <div class="card widget" data-type="profile">
+                        <div class="card-content">
+                            <nav class="level">
+                                <div class="level-item has-text-centered flex-shrink-1">
+                                    <div>
+                                        <figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded"
+                                                src="http://rcy276gfy.hd-bkt.clouddn.com/微信图片_20210131173244.jpg"
+                                                alt="魑魅先生"></figure>
+                                        <p class="title is-size-4 is-block" style="line-height:inherit;">魑魅先生</p>
+                                        <p class="is-size-6 is-block">快乐永远在解决问题的间隙里(*￣︶￣)</p>
+                                        <p class="is-size-6 is-flex justify-content-center"><i
+                                                class="fas fa-map-marker-alt mr-1"></i><span>浙江-杭州</span></p>
+                                    </div>
+                                </div>
+                            </nav>
+                            <nav class="level is-mobile">
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">文章</p><a href="/archives">
+                                            <p class="title">57</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">分类</p><a href="/categories">
+                                            <p class="title">86</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">标签</p><a href="/tags">
+                                            <p class="title">43</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="level"><a class="level-item button is-primary is-rounded"
+                                    href="https://github.com/MrDemonlxl" target="_blank" rel="noopener">关注我</a></div>
+                            <div class="level is-mobile"><a class="level-item button is-transparent is-marginless"
+                                    target="_blank" rel="noopener" title="Github"
+                                    href="https://github.com/MrDemonlxl"><i class="fab fa-github"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Weibo" href="https://weibo.com/MrDemonlxl"><i
+                                        class="fab fa-weibo"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Email" href="/714416426@qq.com"><i
+                                        class="fa fa-envelope"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Next" href="https://mrdemonlxl.github.io"><i
+                                        class="fab fa-dribbble"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="RSS"
+                                    href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI5NDc0MDg1Mg==#wechat_redirect"><i
+                                        class="fas fa-rss"></i></a></div>
+                            <div>
+                                <hr>
+                                <p id="hitokoto">:D 一言句子获取中...</p>
+                                <script type="text/javascript" defer>function getYiyan() {
+                                        $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                            if (data) {
+                                                $('#hitokoto').html("");
+                                                $('#hitokoto').append("<strong style='color: #3273dc;'>" + data.hitokoto + "</strong>" +
+                                                    "<p>" + "来源《" + data.from + "》</p><p>提供者-" + data.creator + "</p>");
+                                            }
+                                        });
+                                    }
+                                    $(function () { getYiyan(); $('#hitokoto').click(function () { getYiyan(); }) });</script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget" data-type="links">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">链接</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile" href="https://www.jianshu.com/u/4af2d33dbe6f"
+                                            target="_blank" rel="noopener"><span class="level-left"><span
+                                                    class="level-item">简书</span></span><span class="level-right"><span
+                                                    class="level-item tag">www.jianshu.com</span></span></a></li>
+                                    <li><a class="level is-mobile" href="https://blog.csdn.net/qq_37862970"
+                                            target="_blank" rel="noopener"><span class="level-left"><span
+                                                    class="level-item">CSDN</span></span><span class="level-right"><span
+                                                    class="level-item tag">blog.csdn.net</span></span></a></li>
+                                    <li><a class="level is-mobile" href="https://github.com/MrDemonlxl" target="_blank"
+                                            rel="noopener"><span class="level-left"><span
+                                                    class="level-item">GitHub</span></span><span
+                                                class="level-right"><span
+                                                    class="level-item tag">github.com</span></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <h3 class="menu-label">最新文章</h3>
+                            <article class="media">
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2022-05-22T10:59:37.980Z">2022-05-22</time></p>
+                                    <p class="title"><a href="/2022/05/22/Draft/2021/Draft/"> </a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/39go6v.jpg" alt="JVM 与上层技术"></a>
+                                </figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-11-10T14:10:43.000Z">2021-11-10</time></p>
+                                    <p class="title"><a
+                                            href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM
+                                            与上层技术</a></p>
+                                    <p class="categories"><a
+                                            href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/">底层学习</a> / <a
+                                            href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/JVM-%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM
+                                            与上层技术</a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/10/20/Draft/2021/MyBatis-Plus/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/webp.png" alt="MyBatis-Plus"></a>
+                                </figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-10-20T14:10:43.000Z">2021-10-20</time></p>
+                                    <p class="title"><a href="/2021/10/20/Draft/2021/MyBatis-Plus/">MyBatis-Plus</a></p>
+                                    <p class="categories"><a href="/categories/Frame/">Frame</a> / <a
+                                            href="/categories/Frame/MyBatis-Plus/">MyBatis-Plus</a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/webp.png" alt="思维闪光"></a></figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-07-20T14:10:43.000Z">2021-07-20</time></p>
+                                    <p class="title"><a href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/">思维闪光</a></p>
+                                    <p class="categories"><a
+                                            href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/">临时记录</a> / <a
+                                            href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/%E6%80%9D%E7%BB%B4%E9%97%AA%E5%85%89/">思维闪光</a>
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/webp1.png" alt="Python 学习"></a>
+                                </figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-05-31T14:10:43.000Z">2021-05-31</time></p>
+                                    <p class="title"><a href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/">Python
+                                            学习</a></p>
+                                    <p class="categories"><a
+                                            href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a> / <a
+                                            href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">分类</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile is-marginless"
+                                            href="/categories/BUG%E8%AE%B0%E5%BD%95/"><span class="level-start"><span
+                                                    class="level-item">BUG记录</span></span><span class="level-end"><span
+                                                    class="level-item tag">2</span></span></a>
+                                        <ul class="mr-0">
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/BUG%E8%AE%B0%E5%BD%95/BUG/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">BUG</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">2</span></span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="level is-mobile is-marginless" href="/categories/English/"><span
+                                                class="level-start"><span class="level-item">English</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a>
+                                        <ul class="mr-0">
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/English/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8B%B1%E8%AF%AD/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">程序员英语</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="level is-mobile is-marginless" href="/categories/Frame/"><span
+                                                class="level-start"><span class="level-item">Frame</span></span><span
+                                                class="level-end"><span class="level-item tag">6</span></span></a>
+                                        <ul class="mr-0">
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/MyBatis/"><span class="level-start"><span
+                                                            class="level-item">MyBatis</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/MyBatis-Plus/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">MyBatis-Plus</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/Spring/"><span class="level-start"><span
+                                                            class="level-item">Spring</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/SpringBoot/"><span class="level-start"><span
+                                                            class="level-item">SpringBoot</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/SpringCloud/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">SpringCloud</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                        </ul>
+                                    </li><a class="level is-mobile is-marginless" href="/categories/"><span
+                                            class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">归档</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2022/05/"><span
+                                                class="level-start"><span class="level-item">五月 2022</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span
+                                                class="level-start"><span class="level-item">十一月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/10/"><span
+                                                class="level-start"><span class="level-item">十月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span
+                                                class="level-start"><span class="level-item">七月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/05/"><span
+                                                class="level-start"><span class="level-item">五月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">3</span></span></a></li>
+                                    <a class="level is-mobile is-marginless" href="/archives/"><span
+                                            class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">标签</h3>
+                                <div class="field is-grouped is-grouped-multiline">
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/"><span
+                                                class="tag">工具教程</span><span class="tag is-grey-lightest">6</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Frame/"><span
+                                                class="tag">Frame</span><span class="tag is-grey-lightest">5</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"><span
+                                                class="tag">程序人生</span><span class="tag is-grey-lightest">3</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/BUG/"><span
+                                                class="tag">BUG</span><span class="tag is-grey-lightest">2</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tag">前端</span><span
+                                                class="tag is-grey-lightest">2</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/CRUD/"><span
+                                                class="tag">CRUD</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Docker/"><span
+                                                class="tag">Docker</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Dubbo/"><span
+                                                class="tag">Dubbo</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/English/"><span
+                                                class="tag">English</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Life/"><span
+                                                class="tag">Life</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/MongoDB/"><span
+                                                class="tag">MongoDB</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/NO-GAME-NO-LIFE/"><span
+                                                class="tag">NO GAME NO LIFE</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span
+                                                class="tag">Nginx</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span
+                                                class="tag">Python学习</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/RabbitMQ/"><span
+                                                class="tag">RabbitMQ</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Redis/"><span
+                                                class="tag">Redis</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/Software-Engineer/"><span class="tag">Software
+                                                Engineer</span><span class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/SpringCloud/"><span
+                                                class="tag">SpringCloud</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/"><span
+                                                class="tag">临时记录</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E4%B9%A6%E5%BD%B1%E9%9F%B3/"><span class="tag">书影音</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                </div>
+                                <div class="field is-grouped is-grouped-multiline"><a class="tags has-addons"
+                                        href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget" data-type="subscribe-email">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">订阅更新</h3>
+                                <form action="https://feedburner.google.com/fb/a/mailverify" method="post"
+                                    target="popupwindow"
+                                    onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=mrdemonlxlFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true">
+                                    <input type="hidden" value="mrdemonlxlFeedsId" name="uri"><input type="hidden"
+                                        name="loc" value="en_US">
+                                    <div class="field has-addons">
+                                        <div class="control has-icons-left is-expanded"><input class="input"
+                                                name="email" type="email" placeholder="Email"><span
+                                                class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <div class="control"><input class="button" type="submit" value="订阅"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--!-->
+                    <div class="column-right-shadow is-hidden-widescreen"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="level">
+                <div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img
+                            src="http://rcy276gfy.hd-bkt.clouddn.com/彩色logo.png" alt="魑魅先生" height="28"></a>
+                    <p class="size-small"><span>&copy; 2022 魑魅先生</span>  Powered by <a href="https://hexo.io/"
+                            target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus"
+                            target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing"
+                            target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/"
+                                target="_blank">川ICP备88888888号-8</a><br></span><span>©
+                            版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a
+                                href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span
+                                id="statistic-times">loading...</span>
+                            <script>function createTime(time) {
+                                    var n = new Date(time);
+                                    now.setTime(now.getTime() + 250),
+                                        days = (now - n) / 1e3 / 60 / 60 / 24,
+                                        dnum = Math.floor(days),
+                                        hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                                        hnum = Math.floor(hours),
+                                        1 == String(hnum).length && (hnum = "0" + hnum),
+                                        minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                                        mnum = Math.floor(minutes),
+                                        1 == String(mnum).length && (mnum = "0" + mnum),
+                                        seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                                        snum = Math.round(seconds),
+                                        1 == String(snum).length && (snum = "0" + snum),
+                                        document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>" + time.split(" ")[0].replace(/\//g, ".") + "</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+                                } var now = new Date(); setInterval("createTime('2021/02/18 00:00:00')", 250, "");</script><br>
+                        </span>
+                    <div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong>
+                            小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div>
+                    </p>
+                </div>
+                <div class="level-end">
+                    <div class="field has-addons">
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Creative Commons" href="https://creativecommons.org/"><i
+                                    class="fab fa-creative-commons"></i></a></p>
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Attribution 4.0 International"
+                                href="https://creativecommons.org/licenses/by/4.0/"><i
+                                    class="fab fa-creative-commons-by"></i></a></p>
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i
+                                    class="fab fa-github"></i></a></p>
+                    </div>
+                    <div class="sideMusic">
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                        <script src="/js/APlayer.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+                        <meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="3071252637"
+                            theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting"
+                            lrctype="0" list-max-height="400px" fixed="true"></meting-js>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+    <script>moment.locale("zh-CN");</script>
+    <script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script>
+    <script src="/js/column.js"></script>
+    <script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i
+            class="fas fa-chevron-up"></i></a>
+    <script src="/js/back_to_top.js" defer></script>
+    <!--!-->
+    <!--!-->
+    <!--!-->
+    <script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script>
+    <script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"
+        defer></script>
+    <script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
@@ -84,20 +781,38 @@
                 }
                 $('.justified-gallery').justifiedGallery();
             }
-        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('20ef8321698ab8c0c37b','4faa4daae14b55afd2ed357fba92d1e9c7c3f729','MrDemonlxl','MrDemonlxl.github.io',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
-        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+        });</script>
+    <!--!-->
+    <!--!-->
+    <!--!-->
+    <script src="/js/main.js" defer></script>
+    <script>$.getScript('/js/comment-issue-data.js', function () { loadIssueData('20ef8321698ab8c0c37b', '4faa4daae14b55afd2ed357fba92d1e9c7c3f729', 'MrDemonlxl', 'MrDemonlxl.github.io', false); })</script>
+    <div class="searchbox">
+        <div class="searchbox-container">
+            <div class="searchbox-header">
+                <div class="searchbox-input-container"><input class="searchbox-input" type="text"
+                        placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a>
+            </div>
+            <div class="searchbox-body"></div>
+        </div>
+    </div>
+    <script src="/js/insight.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({ "contentUrl": "/content.json" }, { "hint": "想要查找什么...", "untitled": "(无标题)", "posts": "文章", "pages": "页面", "categories": "分类", "tags": "标签" });
+        });</script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+    <script type="text/javascript">var pjax = new Pjax({
             elements: "a",//代表点击链接就更新
             selectors: [  //代表要更新的节点
                 ".section",
                 "title"
             ],
             cache: true,
-            cacheBust:false
+            cacheBust: false
         })
 
-        function loadBusuanzi(){
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        function loadBusuanzi() {
+            $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () { });
         }
 
         function loadMathJax() { //加载mathjax
@@ -111,20 +826,23 @@
         // 开始 PJAX 执行的函数
         document.addEventListener('pjax:send', function () {
         });
-        
+
         // PJAX 完成之后执行的函数，可以和上面的重载放在一起
         document.addEventListener('pjax:complete', function () {
-            $(".section").css({opacity:1});
-            if(true){
-                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('20ef8321698ab8c0c37b','4faa4daae14b55afd2ed357fba92d1e9c7c3f729','MrDemonlxl','MrDemonlxl.github.io',false);});
+            $(".section").css({ opacity: 1 });
+            if (true) {
+                $.getScript('/js/comment-issue-data.js', function () { loadIssueData('20ef8321698ab8c0c37b', '4faa4daae14b55afd2ed357fba92d1e9c7c3f729', 'MrDemonlxl', 'MrDemonlxl.github.io', false); });
             }
-            if(false){
+            if (false) {
                 loadMathJax();
             }
             loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
             loadBackTop();
             loadBusuanzi();
-            if(typeof loadBanner == 'function'){
+            if (typeof loadBanner == 'function') {
                 loadBanner();
             }
-        });</script></body></html>
+        });</script>
+</body>
+
+</html>

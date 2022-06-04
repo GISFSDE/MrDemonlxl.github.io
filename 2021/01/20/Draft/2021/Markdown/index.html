@@ -1,349 +1,477 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Markdown - 魑魅先生</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="魑魅先生"><meta name="msapplication-TileImage" content="https://gitee.com/mychimei/picture/raw/master/透明头像.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="魑魅先生"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。"><meta property="og:type" content="blog"><meta property="og:title" content="魑魅先生"><meta property="og:url" content="https://mrdemonlxl.github.io/"><meta property="og:site_name" content="魑魅先生"><meta property="og:description" content="Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg"><meta property="article:published_time" content="2021-01-20T14:10:43.000Z"><meta property="article:modified_time" content="2022-03-27T12:49:37.014Z"><meta property="article:author" content="mrdemonlxl"><meta property="article:tag" content="工具教程"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/"},"headline":"魑魅先生","image":["https://gitee.com/mychimei/picture/raw/master/webp1.png"],"datePublished":"2021-01-20T14:10:43.000Z","dateModified":"2022-03-27T12:49:37.014Z","author":{"@type":"Person","name":"魑魅先生"},"description":"Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。"}</script><link rel="canonical" href="http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/"><link rel="icon" href="https://gitee.com/mychimei/picture/raw/master/透明头像.png"><meta name="referrer" content="no-referrer"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://gitee.com/mychimei/picture/raw/master/彩色logo.png" alt="魑魅先生" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/friend">友链</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/self-talking">碎碎念</a><a class="navbar-item" href="/music">音乐</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://gitee.com/mychimei/picture/raw/master/webp1.png" alt="Markdown"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2021-01-20  <a class="commentCountImg" href="/2021/01/20/Draft/2021/Markdown/#comment-container"><span class="display-none-class">fd9fb0a378aa4ae39718617cd73b3cc4</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="fd9fb0a378aa4ae39718617cd73b3cc4">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>10 分钟  <i class="fas fa-pencil-alt"> </i>1.5 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Markdown</h1><div class="content"><blockquote>
-<p>Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="%E7%AC%A6%E5%8F%B7">符号</h1>
-<p>符号(英文输入状态下，开头输入“:”+英文字母有提示)</p>
-<h2 id="markdown%E7%AE%AD%E5%A4%B4%E7%9A%84%E8%BE%93%E5%85%A5%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB" id="Markdown箭头的输入方法汇总">Markdown箭头的输入方法汇总</h2>
-<h3 id="%E6%99%AE%E9%80%9A%E7%AE%AD%E5%A4%B4" id="普通箭头">普通箭头</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">箭头形状</th>
-<th>MarkDown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\uparrow$</td>
-<td>$\uparrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Uparrow$</td>
-<td>$\Uparrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\downarrow$</td>
-<td>$\downarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Downarrow$</td>
-<td>$\Downarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftarrow$</td>
-<td>$\leftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Leftarrow$</td>
-<td>$\Leftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightarrow$</td>
-<td>$\rightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Rightarrow$</td>
-<td>$\Rightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\updownarrow$</td>
-<td>$\updownarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Updownarrow$</td>
-<td>$\Updownarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftrightarrow$</td>
-<td>$\leftrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Leftrightarrow$</td>
-<td>$\Leftrightarrow$</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="%E9%95%BF%E7%AE%AD%E5%A4%B4" id="长箭头">长箭头</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">箭头形状</th>
-<th>MarkDown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\longleftarrow$</td>
-<td>$\longleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Longleftarrow$</td>
-<td>$\Longleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\longrightarrow$</td>
-<td>$\longrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Longrightarrow$</td>
-<td>$\Longrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\longleftrightarrow$</td>
-<td>$\longleftrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Longleftrightarrow$</td>
-<td>$\Longleftrightarrow$</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="%E5%85%B6%E4%BB%96%E7%AE%AD%E5%A4%B4" id="其他箭头">其他箭头</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">箭头形状</th>
-<th>MarkDown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\twoheadrightarrow$</td>
-<td>$\twoheadrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightarrowtail$</td>
-<td>$\rightarrowtail$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\looparrowright$</td>
-<td>$\looparrowright$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\curvearrowright$</td>
-<td>$\curvearrowright$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\circlearrowright$</td>
-<td>$\circlearrowright$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Rsh$</td>
-<td>$\Rsh$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\multimap$</td>
-<td>$\multimap$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftrightsquigarrow$</td>
-<td>$\leftrightsquigarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightsquigarrow$</td>
-<td>$\rightsquigarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leadsto$</td>
-<td>$\leadsto$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nearrow$</td>
-<td>$\nearrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\searrow$</td>
-<td>$\searrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\swarrow$</td>
-<td>$\swarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nwarrow$</td>
-<td>$\nwarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nleftarrow$</td>
-<td>$\nleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nLeftarrow$</td>
-<td>$\nLeftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nrightarrow$</td>
-<td>$\nrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nRightarrow$</td>
-<td>$\nRightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nleftrightarrow$</td>
-<td>$\nleftrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\nLeftrightarrow$</td>
-<td>$\nLeftrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\dashrightarrow$</td>
-<td>$\dashrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\dashleftarrow$</td>
-<td>$\dashleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftleftarrows$</td>
-<td>$\leftleftarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftrightarrows$</td>
-<td>$\leftrightarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Lleftarrow$</td>
-<td>$\Lleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\twoheadleftarrow$</td>
-<td>$\twoheadleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftarrowtail$</td>
-<td>$\leftarrowtail$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\looparrowleft$</td>
-<td>$\looparrowleft$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\curvearrowleft$</td>
-<td>$\curvearrowleft$</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th style="text-align:center">箭头形状</th>
-<th>MarkDown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\circlearrowleft$</td>
-<td>$\circlearrowleft$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\Lsh$</td>
-<td>$\Lsh$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\mapsto$</td>
-<td>$\mapsto$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\hookleftarrow$</td>
-<td>$\hookleftarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\hookrightarrow$</td>
-<td>$\hookrightarrow$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\upharpoonright$</td>
-<td>$\upharpoonright$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\upharpoonleft$</td>
-<td>$\upharpoonleft$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\downharpoonright$</td>
-<td>$\downharpoonright$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\downharpoonleft$</td>
-<td>$\downharpoonleft$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftharpoonup$</td>
-<td>$\leftharpoonup$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightharpoonup$</td>
-<td>$\rightharpoonup$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightharpoondown$</td>
-<td>$\rightharpoondown$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftharpoondown$</td>
-<td>$\leftharpoondown$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\upuparrows$</td>
-<td>$\upuparrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\downdownarrows$</td>
-<td>$\downdownarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightrightarrows$</td>
-<td>$\rightrightarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightleftarrows$</td>
-<td>$\rightleftarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftleftarrows$</td>
-<td>$\leftleftarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftrightarrows$</td>
-<td>$\leftrightarrows$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\rightleftharpoons$</td>
-<td>$\rightleftharpoons$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\leftrightharpoons$</td>
-<td>$\leftrightharpoons$</td>
-</tr>
-</tbody>
-</table>
-<p>分割线</p>
-<hr />
-<hr />
-<hr />
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/garfielder007/article/details/51646604">LaTeX符号</a></p>
-<p>语法：$\clubsuit$  $\triangleright$</p>
-<h1 id="%E6%A0%BC%E5%BC%8F">格式</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&amp;emsp;首行缩进</span><br><span class="line">~~删除线~~</span><br><span class="line">~缩小~</span><br><span class="line">&#96;代码&#96;  </span><br><span class="line">---  分割线</span><br><span class="line">&lt;font color&#x3D;red&gt;字体颜色&lt;&#x2F;font&gt;</span><br><span class="line">+空格[空格]空格  勾选框</span><br><span class="line">[内容文字](#标题)  页内跳转</span><br><span class="line">[内容文字](跳转目标文件的相对路径)</span><br><span class="line">下划线 html 方法：&lt;span style&#x3D;&quot;border-bottom:2px dashed yellow;&quot;&gt;文字&lt;&#x2F;span&gt;</span><br><span class="line">下划线 typory 方法（ctrl+u）： &lt;u&gt;awdw&lt;&#x2F;u&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="%E5%9B%BE">图</h1>
-<h2 id="%E5%9B%BE%E7%89%87%EF%BC%88hexo%EF%BC%89" id="图片（hexo）">图片（hexo）</h2>
-<h3 id="%E5%9B%BE-1" id="图">图</h3>
-<p><img src="" alt="" /></p>
-<h3 id="%2B-%E6%A8%AA%E7%AB%96%E5%9B%BE" id="横竖图">+ 横竖图</h3>
-<div class="justified-gallery">![张芷溪](https://wx1.sinaimg.cn/large/b5d1b710ly1g6bz7n92s7j212w0nr1kx.jpg) </div>
-<h3 id="%2B-%E6%A8%AA%E5%9B%BE4" id="横图4">+ 横图4</h3>
-<div class="img-x">![v4](https://cdn.jsdelivr.net/gh/removeif/blog_image/img/2019/20191022182226.png) </div>
-<h3 id="%2B-%E7%AB%96%E5%9B%BE5" id="竖图5">+ 竖图5</h3>
-<div class="img-y">![电池](https://cdn.jsdelivr.net/gh/removeif/blog_image/img/2019/20191024145940.jpg) </div>
-<h2 id="%E5%AF%BC%E5%9B%BE" id="导图">导图</h2>
-<!-- <blockquote class="pullquote mindmap mindmap-md"><ul>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta>
+    <title>Markdown - 魑魅先生</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="application-name" content="魑魅先生">
+    <meta name="msapplication-TileImage" content="http://rcy276gfy.hd-bkt.clouddn.com/透明头像.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="魑魅先生">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta description="Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="魑魅先生">
+    <meta property="og:url" content="https://mrdemonlxl.github.io/">
+    <meta property="og:site_name" content="魑魅先生">
+    <meta property="og:description" content="Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="http://rcy276gfy.hd-bkt.clouddn.com/微信图片_20210131173244.jpg">
+    <meta property="article:published_time" content="2021-01-20T14:10:43.000Z">
+    <meta property="article:modified_time" content="2022-06-04T10:22:32.206Z">
+    <meta property="article:author" content="mrdemonlxl">
+    <meta property="article:tag" content="工具教程">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="http://rcy276gfy.hd-bkt.clouddn.com/微信图片_20210131173244.jpg">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/"},"headline":"魑魅先生","image":["http://rcy276gfy.hd-bkt.clouddn.com/webp1.png"],"datePublished":"2021-01-20T14:10:43.000Z","dateModified":"2022-06-04T10:22:32.206Z","author":{"@type":"Person","name":"魑魅先生"},"description":"Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。"}</script>
+    <link rel="canonical" href="http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/">
+    <link rel="icon" href="http://rcy276gfy.hd-bkt.clouddn.com/透明头像.png">
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css">
+    <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/globalUtils.js"></script>
+    <style>
+        body>.footer,
+        body>.navbar,
+        body>.section {
+            opacity: 0
+        }
+    </style>
+    <!--!-->
+    <!--!-->
+    <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+    <!--!-->
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+    <!--!-->
+    <!--!-->
+    <script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <link rel="stylesheet" href="/live2d/waifu.css">
+    <script type="text/javascript" async src="/live2d/autoload.js"></script>
+    <meta name="generator" content="Hexo 5.3.0">
+</head>
+
+<body class="is-3-column has-navbar-fixed-top">
+    <nav class="navbar navbar-main is-fixed-top">
+        <div class="container">
+            <div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img
+                        src="http://rcy276gfy.hd-bkt.clouddn.com/彩色logo.png" alt="魑魅先生" height="28"></a></div>
+            <div class="navbar-menu">
+                <div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item"
+                        href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item"
+                        href="/tags">标签</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item"
+                        href="/friend">友链</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item"
+                        href="/self-talking">碎碎念</a><a class="navbar-item" href="/music">音乐</a><a class="navbar-item"
+                        href="/media">影音</a><a class="navbar-item" href="/about">关于</a></div>
+                <div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter"
+                        href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a
+                        class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub"
+                        href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a
+                        class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i
+                            class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索"
+                        href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav"
+                        title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div>
+            </div>
+        </div>
+    </nav>
+    <script type="text/javascript" src="/js/theme-setting.js"></script>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen">
+                    <!--!-->
+                    <div class="card">
+                        <div class="card-image"><span class="image is-7by3"><img class="fill"
+                                    src="http://rcy276gfy.hd-bkt.clouddn.com/webp1.png" alt="Markdown"></span></div>
+                        <article class="card-content article" role="article">
+                            <div class="article-meta size-small is-uppercase level is-mobile">
+                                <div class="level-left"><i class="far fa-calendar-plus"> </i>2021-01-20  <a
+                                        class="commentCountImg"
+                                        href="/2021/01/20/Draft/2021/Markdown/#comment-container"><span
+                                            class="display-none-class">fd9fb0a378aa4ae39718617cd73b3cc4</span><i
+                                            class="far fa-comment-dots"></i> <span class="commentCount"
+                                            id="fd9fb0a378aa4ae39718617cd73b3cc4">99+</span>  </a><span
+                                        class="level-item"><i class="far fa-clock"> </i>10 分钟  <i
+                                            class="fas fa-pencil-alt"> </i>1.5 k</span><span class="level-item"
+                                        id="busuanzi_container_page_pv"><span
+                                            id="busuanzi_value_page_pv">0</span>次访问</span></div>
+                            </div>
+                            <h1 class="title is-3 is-size-4-mobile">Markdown</h1>
+                            <div class="content">
+                                <blockquote>
+                                    <p>Markdown作为自媒体人非常方便的一个工具，可以再各大自媒体网站通用，实现一篇多发的效果。其语法简单，几乎可以抛弃鼠标，生成一切样式。</p>
+                                </blockquote>
+                                <a id="more"></a>
+                                <h1 id="%E7%AC%A6%E5%8F%B7">符号</h1>
+                                <p>符号(英文输入状态下，开头输入“:”+英文字母有提示)</p>
+                                <h2 id="markdown%E7%AE%AD%E5%A4%B4%E7%9A%84%E8%BE%93%E5%85%A5%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB"
+                                    id="Markdown箭头的输入方法汇总">Markdown箭头的输入方法汇总</h2>
+                                <h3 id="%E6%99%AE%E9%80%9A%E7%AE%AD%E5%A4%B4" id="普通箭头">普通箭头</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:center">箭头形状</th>
+                                            <th>MarkDown</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:center">$\uparrow$</td>
+                                            <td>$\uparrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Uparrow$</td>
+                                            <td>$\Uparrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\downarrow$</td>
+                                            <td>$\downarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Downarrow$</td>
+                                            <td>$\Downarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftarrow$</td>
+                                            <td>$\leftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Leftarrow$</td>
+                                            <td>$\Leftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightarrow$</td>
+                                            <td>$\rightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Rightarrow$</td>
+                                            <td>$\Rightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\updownarrow$</td>
+                                            <td>$\updownarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Updownarrow$</td>
+                                            <td>$\Updownarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftrightarrow$</td>
+                                            <td>$\leftrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Leftrightarrow$</td>
+                                            <td>$\Leftrightarrow$</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr />
+                                <h3 id="%E9%95%BF%E7%AE%AD%E5%A4%B4" id="长箭头">长箭头</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:center">箭头形状</th>
+                                            <th>MarkDown</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:center">$\longleftarrow$</td>
+                                            <td>$\longleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Longleftarrow$</td>
+                                            <td>$\Longleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\longrightarrow$</td>
+                                            <td>$\longrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Longrightarrow$</td>
+                                            <td>$\Longrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\longleftrightarrow$</td>
+                                            <td>$\longleftrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Longleftrightarrow$</td>
+                                            <td>$\Longleftrightarrow$</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr />
+                                <h3 id="%E5%85%B6%E4%BB%96%E7%AE%AD%E5%A4%B4" id="其他箭头">其他箭头</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:center">箭头形状</th>
+                                            <th>MarkDown</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:center">$\twoheadrightarrow$</td>
+                                            <td>$\twoheadrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightarrowtail$</td>
+                                            <td>$\rightarrowtail$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\looparrowright$</td>
+                                            <td>$\looparrowright$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\curvearrowright$</td>
+                                            <td>$\curvearrowright$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\circlearrowright$</td>
+                                            <td>$\circlearrowright$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Rsh$</td>
+                                            <td>$\Rsh$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\multimap$</td>
+                                            <td>$\multimap$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftrightsquigarrow$</td>
+                                            <td>$\leftrightsquigarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightsquigarrow$</td>
+                                            <td>$\rightsquigarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leadsto$</td>
+                                            <td>$\leadsto$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nearrow$</td>
+                                            <td>$\nearrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\searrow$</td>
+                                            <td>$\searrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\swarrow$</td>
+                                            <td>$\swarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nwarrow$</td>
+                                            <td>$\nwarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nleftarrow$</td>
+                                            <td>$\nleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nLeftarrow$</td>
+                                            <td>$\nLeftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nrightarrow$</td>
+                                            <td>$\nrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nRightarrow$</td>
+                                            <td>$\nRightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nleftrightarrow$</td>
+                                            <td>$\nleftrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\nLeftrightarrow$</td>
+                                            <td>$\nLeftrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\dashrightarrow$</td>
+                                            <td>$\dashrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\dashleftarrow$</td>
+                                            <td>$\dashleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftleftarrows$</td>
+                                            <td>$\leftleftarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftrightarrows$</td>
+                                            <td>$\leftrightarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Lleftarrow$</td>
+                                            <td>$\Lleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\twoheadleftarrow$</td>
+                                            <td>$\twoheadleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftarrowtail$</td>
+                                            <td>$\leftarrowtail$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\looparrowleft$</td>
+                                            <td>$\looparrowleft$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\curvearrowleft$</td>
+                                            <td>$\curvearrowleft$</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr />
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:center">箭头形状</th>
+                                            <th>MarkDown</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:center">$\circlearrowleft$</td>
+                                            <td>$\circlearrowleft$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\Lsh$</td>
+                                            <td>$\Lsh$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\mapsto$</td>
+                                            <td>$\mapsto$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\hookleftarrow$</td>
+                                            <td>$\hookleftarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\hookrightarrow$</td>
+                                            <td>$\hookrightarrow$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\upharpoonright$</td>
+                                            <td>$\upharpoonright$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\upharpoonleft$</td>
+                                            <td>$\upharpoonleft$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\downharpoonright$</td>
+                                            <td>$\downharpoonright$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\downharpoonleft$</td>
+                                            <td>$\downharpoonleft$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftharpoonup$</td>
+                                            <td>$\leftharpoonup$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightharpoonup$</td>
+                                            <td>$\rightharpoonup$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightharpoondown$</td>
+                                            <td>$\rightharpoondown$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftharpoondown$</td>
+                                            <td>$\leftharpoondown$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\upuparrows$</td>
+                                            <td>$\upuparrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\downdownarrows$</td>
+                                            <td>$\downdownarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightrightarrows$</td>
+                                            <td>$\rightrightarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightleftarrows$</td>
+                                            <td>$\rightleftarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftleftarrows$</td>
+                                            <td>$\leftleftarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftrightarrows$</td>
+                                            <td>$\leftrightarrows$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\rightleftharpoons$</td>
+                                            <td>$\rightleftharpoons$</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">$\leftrightharpoons$</td>
+                                            <td>$\leftrightharpoons$</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>分割线</p>
+                                <hr />
+                                <hr />
+                                <hr />
+                                <p><a target="_blank" rel="noopener"
+                                        href="https://blog.csdn.net/garfielder007/article/details/51646604">LaTeX符号</a>
+                                </p>
+                                <p>语法：$\clubsuit$ $\triangleright$</p>
+                                <h1 id="%E6%A0%BC%E5%BC%8F">格式</h1>
+                                <figure class="highlight plain">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line">&amp;emsp;首行缩进</span><br><span class="line">~~删除线~~</span><br><span class="line">~缩小~</span><br><span class="line">&#96;代码&#96;  </span><br><span class="line">---  分割线</span><br><span class="line">&lt;font color&#x3D;red&gt;字体颜色&lt;&#x2F;font&gt;</span><br><span class="line">+空格[空格]空格  勾选框</span><br><span class="line">[内容文字](#标题)  页内跳转</span><br><span class="line">[内容文字](跳转目标文件的相对路径)</span><br><span class="line">下划线 html 方法：&lt;span style&#x3D;&quot;border-bottom:2px dashed yellow;&quot;&gt;文字&lt;&#x2F;span&gt;</span><br><span class="line">下划线 typory 方法（ctrl+u）： &lt;u&gt;awdw&lt;&#x2F;u&gt;</span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="%E5%9B%BE">图</h1>
+                                <h2 id="%E5%9B%BE%E7%89%87%EF%BC%88hexo%EF%BC%89" id="图片（hexo）">图片（hexo）</h2>
+                                <h3 id="%E5%9B%BE-1" id="图">图</h3>
+                                <p><img src="" alt="" /></p>
+                                <h3 id="%2B-%E6%A8%AA%E7%AB%96%E5%9B%BE" id="横竖图">+ 横竖图</h3>
+                                <div class="justified-gallery">
+                                    ![张芷溪](https://wx1.sinaimg.cn/large/b5d1b710ly1g6bz7n92s7j212w0nr1kx.jpg) </div>
+                                <h3 id="%2B-%E6%A8%AA%E5%9B%BE4" id="横图4">+ 横图4</h3>
+                                <div class="img-x">
+                                    ![v4](https://cdn.jsdelivr.net/gh/removeif/blog_image/img/2019/20191022182226.png)
+                                </div>
+                                <h3 id="%2B-%E7%AB%96%E5%9B%BE5" id="竖图5">+ 竖图5</h3>
+                                <div class="img-y">
+                                    ![电池](https://cdn.jsdelivr.net/gh/removeif/blog_image/img/2019/20191024145940.jpg)
+                                </div>
+                                <h2 id="%E5%AF%BC%E5%9B%BE" id="导图">导图</h2>
+                                <!-- <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>Fengx
 <ul>
 <li>任何方向
@@ -401,8 +529,8 @@
 </li>
 </ul>
 </blockquote> -->
-<h2 id="%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E5%9B%BE" id="状态转移图">状态转移图</h2>
-<pre class="mermaid">stateDiagram
+                                <h2 id="%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E5%9B%BE" id="状态转移图">状态转移图</h2>
+                                <pre class="mermaid">stateDiagram
   %% 单程生命周期起点是实心圆，终点是同心圆，内圆为实心。
   %%这个例子包含是3个状态Still, Moving 和 Crash. 从Still状态可以转移到Moving，从Moving可以转移到Still 或者 Crash。不能从Still转移到Crash
     [*] --> Still 
@@ -414,8 +542,8 @@
     Moving --> Still 
     Moving --> Crash
     Crash --> [*]</pre>
-<h2 id="%E7%B1%BB%E5%9B%BE" id="类图">类图</h2>
-<pre class="mermaid">classDiagram
+                                <h2 id="%E7%B1%BB%E5%9B%BE" id="类图">类图</h2>
+                                <pre class="mermaid">classDiagram
 class Duck{
           -String beakColor
           - double weight
@@ -457,8 +585,8 @@ classC --* classD : 组合关系
     Sky "1"--> "1" Sun
     Parent "1" -- "0..2" Children
     Person "1" -- "2" Eyes</pre>
-<h2 id="%E9%A5%BC%E5%9B%BE" id="饼图">饼图</h2>
-<pre class="mermaid">pie
+                                <h2 id="%E9%A5%BC%E5%9B%BE" id="饼图">饼图</h2>
+                                <pre class="mermaid">pie
 
 title Pie Chart
     
@@ -469,39 +597,40 @@ title Pie Chart
 "Rats" : 150
     
 "Cows" : 150</pre>
-<h2 id="%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C" id="渲染效果">渲染效果</h2>
-<pre class="mermaid">graph LR
+                                <h2 id="%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C" id="渲染效果">渲染效果</h2>
+                                <pre class="mermaid">graph LR
      id1(Start)-->id2(Stop)
      style id1 fill:#f9f,stroke:#333,stroke-width:4px;
      style id2 fill:#f00,stroke:#000,stroke-width:2px,stroke-dasharray:5,5;</pre>
-<h2 id="%E5%9F%BA%E7%A1%80fontawesome%E6%94%AF%E6%8C%81" id="基础fontawesome支持">基础fontawesome支持</h2>
-<pre class="mermaid">graph TD
+                                <h2 id="%E5%9F%BA%E7%A1%80fontawesome%E6%94%AF%E6%8C%81" id="基础fontawesome支持">
+                                    基础fontawesome支持</h2>
+                                <pre class="mermaid">graph TD
       B["fa:fa-twitter for peace"]
       B-->C[fa:fa-ban forbidden]
       B-->D(fa:fa-spinner);
       B-->E(A fa:fa-camerra-retro perhaps?);</pre>
-<h2 id="%E8%BF%9E%E7%BA%BF" id="连线">连线</h2>
-<pre class="mermaid">graph TD
+                                <h2 id="%E8%BF%9E%E7%BA%BF" id="连线">连线</h2>
+                                <pre class="mermaid">graph TD
       A1==TEXT===B1
       A2-->|text|B2
       A3..-B3</pre>
-<h2 id="%E8%8A%82%E7%82%B9%E5%BD%A2%E7%8A%B6" id="节点形状">节点形状</h2>
-<pre class="mermaid">    graph TD
+                                <h2 id="%E8%8A%82%E7%82%B9%E5%BD%A2%E7%8A%B6" id="节点形状">节点形状</h2>
+                                <pre class="mermaid">    graph TD
       B[bname]
       C(cname)
       D((dname))
       E>ename]
       F{fname}</pre>
-<h2 id="%E7%94%98%E7%89%B9%E5%9B%BE" id="甘特图">甘特图</h2>
-<p>关键词说明：<br />
-title—标题<br />
-dateFormat—日期格式<br />
-section—模块<br />
-Completed—已经完成<br />
-Active—当前正在进行<br />
-Future—后续待处理<br />
-crit—关键阶段</p>
-<pre class="mermaid">gantt
+                                <h2 id="%E7%94%98%E7%89%B9%E5%9B%BE" id="甘特图">甘特图</h2>
+                                <p>关键词说明：<br />
+                                    title—标题<br />
+                                    dateFormat—日期格式<br />
+                                    section—模块<br />
+                                    Completed—已经完成<br />
+                                    Active—当前正在进行<br />
+                                    Future—后续待处理<br />
+                                    crit—关键阶段</p>
+                                <pre class="mermaid">gantt
 　　　dateFormat　YYYY-MM-DD
 　　　title Adding GANTT diagram functionality to mermaid
 　　　section A section
@@ -516,9 +645,9 @@ crit—关键阶段</p>
 　　　Future task in critical line　　　　　:crit, 5d
 　　　Create tests for renderer　　　　　　:2d
 　　　Add to ,mermaid　　　　　　　　　　　:1d</pre>
-<h2 id="%E6%B5%81%E7%A8%8B%E5%9B%BE" id="流程图">流程图</h2>
-<div id="flowchart-0" class="flow-chart"></div>
-<pre class="mermaid">graph TD
+                                <h2 id="%E6%B5%81%E7%A8%8B%E5%9B%BE" id="流程图">流程图</h2>
+                                <div id="flowchart-0" class="flow-chart"></div>
+                                <pre class="mermaid">graph TD
 
 A[方形] -->B(圆角)
 
@@ -529,116 +658,173 @@ A[方形] -->B(圆角)
   C -->|a=2| E[结果2]
 
   F[竖向流程图]</pre>
-<h2 id="%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B" id="时序图示例">时序图示例</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Title:时序图示例</span><br><span class="line">客户端-&gt;服务端: 我想找你拿下数据 SYN</span><br><span class="line">服务端--&gt;客户端: 我收到你的请求啦 ACK+SYN</span><br><span class="line">客户端-&gt;&gt;服务端: 我收到你的确认啦，我们开始通信吧 ACK</span><br><span class="line">Note right of 服务端: 我是一个服务端</span><br><span class="line">Note left of 客户端: 我是一个客户端</span><br><span class="line">Note over 服务端,客户端: TCP 三次握手</span><br><span class="line">participant 观察者</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="%E5%85%AC%E5%BC%8F">公式</h1>
-<p>$$<br />
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br />
-\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br />
-\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br />
-\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br />
-\end{vmatrix}<br />
-${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}<br />
-$$</p>
-<h1 id="%E8%A1%A8%E6%A0%BC">表格</h1>
-<p>ctl+回车新增行</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">左对齐</th>
-<th style="text-align:right">右对齐</th>
-<th style="text-align:center">居中对齐</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">单元格</td>
-<td style="text-align:right">单元格</td>
-<td style="text-align:center">单元格</td>
-</tr>
-<tr>
-<td style="text-align:left">单元格</td>
-<td style="text-align:right">单元格</td>
-<td style="text-align:center">单元格</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<h1 id="%E4%BB%A3%E7%A0%81">代码</h1>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello!</span><br></pre></td></tr></table></figure>
-<p>Hexo可折叠</p>
-<figure class="highlight java"><figcaption><span>main.java >folded</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可折叠代码块</span><br></pre></td></tr></table></figure>
-<h1 id="%E8%84%9A%E6%B3%A8">脚注</h1>
-<p>文字内容 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<h1 id="todo%E5%88%97%E8%A1%A8">todo列表</h1>
-<p>+空格[空格]空格  <strong>勾选框</strong>+ [ ]</p>
-<ul>
-<li>
-<p>[ ]</p>
-</li>
-<li>
-<p>[ ]</p>
-</li>
-</ul>
-<blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 读书</label></li>
-</ul>
-<blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 《》</label></li>
-</ul>
-</blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 专业</label></li>
-</ul>
-<blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> （设计模式代码Demo，</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 网络，</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> JVM，</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> VUE项目，</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> Linux）</label></li>
-</ul>
-</blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 音乐</label></li>
-</ul>
-<blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 吉他谱扒谱学习</label></li>
-</ul>
-</blockquote>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 运动</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> 画画</label></li>
-</ul>
-</blockquote>
-<h1 id="typory">Typory</h1>
-<h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%EF%BC%88%E4%BF%AE%E6%94%B9css%EF%BC%89" id="自定义元素样式（修改CSS）">自定义元素样式（修改CSS）</h2>
-<p><img src="https://gitee.com/mychimei/picture/raw/master/image-20220312105134478.png" alt="image-20220312105134478" /></p>
-<h2 id="%E5%BF%AB%E6%8D%B7%E9%94%AE" id="快捷键">快捷键</h2>
-<h1 id="%E5%85%B6%E4%BB%96">其他</h1>
-<h3 id="emoji%E3%80%90%E5%A4%96%E5%8F%AF%E8%AE%BF%E3%80%91%EF%BC%8Ctypora-%E5%BF%AB%E6%8D%B7%E9%94%AEwin%2B%E3%80%82" id="emoji【外可访】，Typora-快捷键WIN-。"><a target="_blank" rel="noopener" href="https://emojipedia.org/microsoft/">emoji</a>【外可访】，Typora 快捷键WIN+。</h3>
-<p>🎈🎈<br />
-🤲</p>
-<p>😎</p>
-<p><ins>inserted</ins> =&gt; <ins>inserted</ins></p>
-<p>29<sup>th</sup> =&gt; 29<sup>th</sup><br />
-H<sub>2</sub>0 =&gt; H<sub>2</sub>O</p>
-<p>basic footnote<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup><br />
-here is an inline footnote[^2](inline footnote)<br />
-and another one<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><br />
-and another one<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
-<p>footnote<br />
-content</p>
-<p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification<br />
-is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">
+                                <h2 id="%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B" id="时序图示例">时序图示例</h2>
+                                <figure class="highlight plain">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line">Title:时序图示例</span><br><span class="line">客户端-&gt;服务端: 我想找你拿下数据 SYN</span><br><span class="line">服务端--&gt;客户端: 我收到你的请求啦 ACK+SYN</span><br><span class="line">客户端-&gt;&gt;服务端: 我收到你的确认啦，我们开始通信吧 ACK</span><br><span class="line">Note right of 服务端: 我是一个服务端</span><br><span class="line">Note left of 客户端: 我是一个客户端</span><br><span class="line">Note over 服务端,客户端: TCP 三次握手</span><br><span class="line">participant 观察者</span><br><span class="line"></span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="%E5%85%AC%E5%BC%8F">公式</h1>
+                                <p>$$<br />
+                                    \mathbf{V}_1 \times \mathbf{V}_2 = \begin{vmatrix}<br />
+                                    \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br />
+                                    \frac{\partial X}{\partial u} &amp; \frac{\partial Y}{\partial u} &amp; 0 \<br />
+                                    \frac{\partial X}{\partial v} &amp; \frac{\partial Y}{\partial v} &amp; 0 \<br />
+                                    \end{vmatrix}<br />
+                                    ${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}<br />
+                                    $$</p>
+                                <h1 id="%E8%A1%A8%E6%A0%BC">表格</h1>
+                                <p>ctl+回车新增行</p>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:left">左对齐</th>
+                                            <th style="text-align:right">右对齐</th>
+                                            <th style="text-align:center">居中对齐</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:left">单元格</td>
+                                            <td style="text-align:right">单元格</td>
+                                            <td style="text-align:center">单元格</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:left">单元格</td>
+                                            <td style="text-align:right">单元格</td>
+                                            <td style="text-align:center">单元格</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:left"></td>
+                                            <td style="text-align:right"></td>
+                                            <td style="text-align:center"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h1 id="%E4%BB%A3%E7%A0%81">代码</h1>
+                                <figure class="highlight java">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line">hello!</span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <p>Hexo可折叠</p>
+                                <figure class="highlight java">
+                                    <figcaption><span>main.java >folded</span></figcaption>
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line">可折叠代码块</span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="%E8%84%9A%E6%B3%A8">脚注</h1>
+                                <p>文字内容 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+                                <h1 id="todo%E5%88%97%E8%A1%A8">todo列表</h1>
+                                <p>+空格[空格]空格 <strong>勾选框</strong>+ [ ]</p>
+                                <ul>
+                                    <li>
+                                        <p>[ ]</p>
+                                    </li>
+                                    <li>
+                                        <p>[ ]</p>
+                                    </li>
+                                </ul>
+                                <blockquote>
+                                    <ul class="contains-task-list">
+                                        <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                    disabled="" type="checkbox"> 读书</label></li>
+                                    </ul>
+                                    <blockquote>
+                                        <ul class="contains-task-list">
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> 《》</label></li>
+                                        </ul>
+                                    </blockquote>
+                                    <ul class="contains-task-list">
+                                        <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                    disabled="" type="checkbox"> 专业</label></li>
+                                    </ul>
+                                    <blockquote>
+                                        <ul class="contains-task-list">
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> （设计模式代码Demo，</label></li>
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> 网络，</label></li>
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> JVM，</label></li>
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> VUE项目，</label></li>
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> Linux）</label></li>
+                                        </ul>
+                                    </blockquote>
+                                    <ul class="contains-task-list">
+                                        <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                    disabled="" type="checkbox"> 音乐</label></li>
+                                    </ul>
+                                    <blockquote>
+                                        <ul class="contains-task-list">
+                                            <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                        disabled="" type="checkbox"> 吉他谱扒谱学习</label></li>
+                                        </ul>
+                                    </blockquote>
+                                    <ul class="contains-task-list">
+                                        <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                    disabled="" type="checkbox"> 运动</label></li>
+                                        <li class="task-list-item"><label><input class="task-list-item-checkbox"
+                                                    disabled="" type="checkbox"> 画画</label></li>
+                                    </ul>
+                                </blockquote>
+                                <h1 id="typory">Typory</h1>
+                                <h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%EF%BC%88%E4%BF%AE%E6%94%B9css%EF%BC%89"
+                                    id="自定义元素样式（修改CSS）">自定义元素样式（修改CSS）</h2>
+                                <p><img src="http://rcy276gfy.hd-bkt.clouddn.com/image-20220312105134478.png"
+                                        alt="image-20220312105134478" /></p>
+                                <h2 id="%E5%BF%AB%E6%8D%B7%E9%94%AE" id="快捷键">快捷键</h2>
+                                <h1 id="%E5%85%B6%E4%BB%96">其他</h1>
+                                <h3 id="emoji%E3%80%90%E5%A4%96%E5%8F%AF%E8%AE%BF%E3%80%91%EF%BC%8Ctypora-%E5%BF%AB%E6%8D%B7%E9%94%AEwin%2B%E3%80%82"
+                                    id="emoji【外可访】，Typora-快捷键WIN-。"><a target="_blank" rel="noopener"
+                                        href="https://emojipedia.org/microsoft/">emoji</a>【外可访】，Typora 快捷键WIN+。</h3>
+                                <p>🎈🎈<br />
+                                    🤲</p>
+                                <p>😎</p>
+                                <p><ins>inserted</ins> =&gt; <ins>inserted</ins></p>
+                                <p>29<sup>th</sup> =&gt; 29<sup>th</sup><br />
+                                    H<sub>2</sub>0 =&gt; H<sub>2</sub>O</p>
+                                <p>basic footnote<sup class="footnote-ref"><a href="#fn1"
+                                            id="fnref1:1">[1:1]</a></sup><br />
+                                    here is an inline footnote[^2](inline footnote)<br />
+                                    and another one<sup class="footnote-ref"><a href="#fn2"
+                                            id="fnref2">[2]</a></sup><br />
+                                    and another one<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>
+                                </p>
+                                <p>footnote<br />
+                                    content</p>
+                                <p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification<br />
+                                    is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+                                <script
+                                    src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+                                <script
+                                    src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+                                <textarea id="flowchart-0-code" style="display: none">
 flowchat
 st=>start: Start|past:>http://www.google.com[blank]
 e=>end: End:>http://www.google.com
@@ -653,65 +839,705 @@ st->op1(right)->cond
 cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
-c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>basic footnote content <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>paragraph <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>footnote content with some <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Markdown">markdown</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>Markdown</p><p><a href="http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/">http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="http://MrDemonlxl.github.io"><p>魑魅先生</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-01-20</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2022-03-27</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/2021/02/25/Draft/2021/%E5%BF%AB%E6%9F%A5/" target="_blank">快查</a><br></span><span>  2.<a class="is-size-6" href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/" target="_blank">JVM 与上层技术</a><br></span><span>  3.<a class="is-size-6" href="/2021/02/18/Draft/2021/%E4%BA%94%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BF%E5%8D%9A%E5%AE%A2/" target="_blank">五分钟搭建在线博客</a><br></span><span>  4.<a class="is-size-6" href="/2021/03/01/Draft/2021/%E5%89%8D%E7%AB%AF/" target="_blank">魑魅先生 | 前端</a><br></span><span>  5.<a class="is-size-6" href="/2021/03/01/Draft/2021/JAVA%E5%BA%94%E7%94%A8/" target="_blank">魑魅先生 | 业务技术</a><br></span><span>  6.<a class="is-size-6" href="/2021/03/01/Draft/2021/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">魑魅先生 | 设计模式</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://gitee.com/mychimei/picture/raw/master/1c4f12804cc5a92919acd743d93a869.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://gitee.com/mychimei/picture/raw/master/260e4f4bc9e4053108cd9d02bae7386.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/01/20/Draft/2021/Interesting%20Programs/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Interesting Programs</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/01/20/Draft/2021/MyBatis/"><span class="level-item">MyBatis</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
-            var gitalk = new Gitalk({
-            language:'zh-CN',
-            id: 'fd9fb0a378aa4ae39718617cd73b3cc4',
-            repo: 'MrDemonlxl.github.io',
-            owner: 'MrDemonlxl',
-            clientID: '20ef8321698ab8c0c37b',
-            clientSecret: '4faa4daae14b55afd2ed357fba92d1e9c7c3f729',
-            admin: ["MrDemonlxl"],
-            createIssueManually: true,
-            distractionFreeMode: false,
-            perPage: 10,
-            pagerDirection: 'last',
-            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
-            
-            enableHotKey: true,
-            isLocked: false
-        })
-        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E7%AC%A6%E5%8F%B7"><span>符号</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#markdown%E7%AE%AD%E5%A4%B4%E7%9A%84%E8%BE%93%E5%85%A5%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB"><span>Markdown箭头的输入方法汇总</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E6%99%AE%E9%80%9A%E7%AE%AD%E5%A4%B4"><span>普通箭头</span></a></li><li><a class="is-flex is-mobile" href="#%E9%95%BF%E7%AE%AD%E5%A4%B4"><span>长箭头</span></a></li><li><a class="is-flex is-mobile" href="#%E5%85%B6%E4%BB%96%E7%AE%AD%E5%A4%B4"><span>其他箭头</span></a></li></ul></li></ul></li><li><a class="is-flex is-mobile" href="#%E6%A0%BC%E5%BC%8F"><span>格式</span></a></li><li><a class="is-flex is-mobile" href="#%E5%9B%BE"><span>图</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E5%9B%BE%E7%89%87%EF%BC%88hexo%EF%BC%89"><span>图片（hexo）</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E5%9B%BE-1"><span>图</span></a></li><li><a class="is-flex is-mobile" href="#%2B-%E6%A8%AA%E7%AB%96%E5%9B%BE"><span>+ 横竖图</span></a></li><li><a class="is-flex is-mobile" href="#%2B-%E6%A8%AA%E5%9B%BE4"><span>+ 横图4</span></a></li><li><a class="is-flex is-mobile" href="#%2B-%E7%AB%96%E5%9B%BE5"><span>+ 竖图5</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#%E5%AF%BC%E5%9B%BE"><span>导图</span></a></li><li><a class="is-flex is-mobile" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E5%9B%BE"><span>状态转移图</span></a></li><li><a class="is-flex is-mobile" href="#%E7%B1%BB%E5%9B%BE"><span>类图</span></a></li><li><a class="is-flex is-mobile" href="#%E9%A5%BC%E5%9B%BE"><span>饼图</span></a></li><li><a class="is-flex is-mobile" href="#%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C"><span>渲染效果</span></a></li><li><a class="is-flex is-mobile" href="#%E5%9F%BA%E7%A1%80fontawesome%E6%94%AF%E6%8C%81"><span>基础fontawesome支持</span></a></li><li><a class="is-flex is-mobile" href="#%E8%BF%9E%E7%BA%BF"><span>连线</span></a></li><li><a class="is-flex is-mobile" href="#%E8%8A%82%E7%82%B9%E5%BD%A2%E7%8A%B6"><span>节点形状</span></a></li><li><a class="is-flex is-mobile" href="#%E7%94%98%E7%89%B9%E5%9B%BE"><span>甘特图</span></a></li><li><a class="is-flex is-mobile" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span>流程图</span></a></li><li><a class="is-flex is-mobile" href="#%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B"><span>时序图示例</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#%E5%85%AC%E5%BC%8F"><span>公式</span></a></li><li><a class="is-flex is-mobile" href="#%E8%A1%A8%E6%A0%BC"><span>表格</span></a></li><li><a class="is-flex is-mobile" href="#%E4%BB%A3%E7%A0%81"><span>代码</span></a></li><li><a class="is-flex is-mobile" href="#%E8%84%9A%E6%B3%A8"><span>脚注</span></a></li><li><a class="is-flex is-mobile" href="#todo%E5%88%97%E8%A1%A8"><span>todo列表</span></a></li><li><a class="is-flex is-mobile" href="#typory"><span>Typory</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%EF%BC%88%E4%BF%AE%E6%94%B9css%EF%BC%89"><span>自定义元素样式（修改CSS）</span></a></li><li><a class="is-flex is-mobile" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span>快捷键</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#%E5%85%B6%E4%BB%96"><span>其他</span></a><ul class="menu-list"><ul class="menu-list"><li><a class="is-flex is-mobile" href="#emoji%E3%80%90%E5%A4%96%E5%8F%AF%E8%AE%BF%E3%80%91%EF%BC%8Ctypora-%E5%BF%AB%E6%8D%B7%E9%94%AEwin%2B%E3%80%82"><span>emoji【外可访】，Typora 快捷键WIN+。</span></a></li></ul></ul></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://gitee.com/mychimei/picture/raw/master/微信图片_20210131173244.jpg" alt="魑魅先生"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">魑魅先生</p><p class="is-size-6 is-block">快乐永远在解决问题的间隙里(*￣︶￣)</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>浙江-杭州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">54</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">82</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">41</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/MrDemonlxl" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/MrDemonlxl"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/MrDemonlxl"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="/714416426@qq.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Next" href="https://mrdemonlxl.github.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI5NDc0MDg1Mg==#wechat_redirect"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
-                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
-                                if(data){
-                                    $('#hitokoto').html("");
-                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
-                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
-                                }});}
-                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.jianshu.com/u/4af2d33dbe6f" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">简书</span></span><span class="level-right"><span class="level-item tag">www.jianshu.com</span></span></a></li><li><a class="level is-mobile" href="https://blog.csdn.net/qq_37862970" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">CSDN</span></span><span class="level-right"><span class="level-item tag">blog.csdn.net</span></span></a></li><li><a class="level is-mobile" href="https://github.com/MrDemonlxl" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"><img src="https://gitee.com/mychimei/picture/raw/master/39go6v.jpg" alt="JVM 与上层技术"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-11-10T14:10:43.000Z">2021-11-10</time></p><p class="title"><a href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM 与上层技术</a></p><p class="categories"><a href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/">底层学习</a> / <a href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/JVM-%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM 与上层技术</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/10/20/Draft/2021/MyBatis-Plus/"><img src="https://gitee.com/mychimei/picture/raw/master/webp.png" alt="MyBatis-Plus"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-10-20T14:10:43.000Z">2021-10-20</time></p><p class="title"><a href="/2021/10/20/Draft/2021/MyBatis-Plus/">MyBatis-Plus</a></p><p class="categories"><a href="/categories/Frame/">Frame</a> / <a href="/categories/Frame/MyBatis-Plus/">MyBatis-Plus</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/"><img src="https://gitee.com/mychimei/picture/raw/master/webp.png" alt="思维闪光"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-20T14:10:43.000Z">2021-07-20</time></p><p class="title"><a href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/">思维闪光</a></p><p class="categories"><a href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/">临时记录</a> / <a href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/%E6%80%9D%E7%BB%B4%E9%97%AA%E5%85%89/">思维闪光</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/"><img src="https://gitee.com/mychimei/picture/raw/master/webp1.png" alt="Python 学习"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-31T14:10:43.000Z">2021-05-31</time></p><p class="title"><a href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/">Python 学习</a></p><p class="categories"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a> / <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python%E5%AD%A6%E4%B9%A0/">Python学习</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/20/Draft/2021/%E5%BC%80%E5%8F%91%E4%BF%AE%E7%94%B5%E8%84%91/"><img src="https://gitee.com/mychimei/picture/raw/master/webp.png" alt="开发修电脑"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-20T14:10:43.000Z">2021-05-20</time></p><p class="title"><a href="/2021/05/20/Draft/2021/%E5%BC%80%E5%8F%91%E4%BF%AE%E7%94%B5%E8%84%91/">开发修电脑</a></p><p class="categories"><a href="/categories/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/">电脑知识</a> / <a href="/categories/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/%E5%BC%80%E5%8F%91%E4%BF%AE%E7%94%B5%E8%84%91/">开发修电脑</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/BUG%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">BUG记录</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/BUG%E8%AE%B0%E5%BD%95/BUG/"><span class="level-start"><span class="level-item">BUG</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/English/"><span class="level-start"><span class="level-item">English</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/English/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">程序员英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/"><span class="level-start"><span class="level-item">Frame</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Frame/MyBatis/"><span class="level-start"><span class="level-item">MyBatis</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/MyBatis-Plus/"><span class="level-start"><span class="level-item">MyBatis-Plus</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/SpringBoot/"><span class="level-start"><span class="level-item">SpringBoot</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Frame/SpringCloud/"><span class="level-start"><span class="level-item">SpringCloud</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/10/"><span class="level-start"><span class="level-item">十月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/05/"><span class="level-start"><span class="level-item">五月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/"><span class="tag">工具教程</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Frame/"><span class="tag">Frame</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"><span class="tag">程序人生</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BUG/"><span class="tag">BUG</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tag">前端</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CRUD/"><span class="tag">CRUD</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Dubbo/"><span class="tag">Dubbo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/English/"><span class="tag">English</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MongoDB/"><span class="tag">MongoDB</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NO-GAME-NO-LIFE/"><span class="tag">NO GAME NO LIFE</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span class="tag">Python学习</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RabbitMQ/"><span class="tag">RabbitMQ</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Redis/"><span class="tag">Redis</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Software-Engineer/"><span class="tag">Software Engineer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SpringCloud/"><span class="tag">SpringCloud</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/"><span class="tag">临时记录</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B9%A6%E5%BD%B1%E9%9F%B3/"><span class="tag">书影音</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/"><span class="tag">信息系统项目管理师</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=mrdemonlxlFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="mrdemonlxlFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://gitee.com/mychimei/picture/raw/master/彩色logo.png" alt="魑魅先生" height="28"></a><p class="size-small"><span>&copy; 2022 魑魅先生</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/" target="_blank">川ICP备88888888号-8</a><br></span><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
-            var n = new Date(time);
-            now.setTime(now.getTime() + 250),
-                days = (now - n) / 1e3 / 60 / 60 / 24,
-                dnum = Math.floor(days),
-                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
-                hnum = Math.floor(hours),
-            1 == String(hnum).length && (hnum = "0" + hnum),
-                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
-                mnum = Math.floor(minutes),
-            1 == String(mnum).length && (mnum = "0" + mnum),
-                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
-                snum = Math.round(seconds),
-            1 == String(snum).length && (snum = "0" + snum),
-                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
-        }var now = new Date();setInterval("createTime('2021/02/18 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="3071252637" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+c2(no)->op2->e</textarea><textarea id="flowchart-0-options"
+                                    style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea>
+                                <script>  var code = document.getElementById("flowchart-0-code").value; var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value)); var diagram = flowchart.parse(code); diagram.drawSVG("flowchart-0", options);</script>
+                                <hr class="footnotes-sep" />
+                                <section class="footnotes">
+                                    <ol class="footnotes-list">
+                                        <li id="fn1" class="footnote-item">
+                                            <p>basic footnote content <a href="#fnref1" class="footnote-backref">↩︎</a>
+                                                <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
+                                        </li>
+                                        <li id="fn2" class="footnote-item">
+                                            <p>paragraph <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+                                        </li>
+                                        <li id="fn3" class="footnote-item">
+                                            <p>footnote content with some <a target="_blank" rel="noopener"
+                                                    href="https://en.wikipedia.org/wiki/Markdown">markdown</a> <a
+                                                    href="#fnref3" class="footnote-backref">↩︎</a></p>
+                                        </li>
+                                    </ol>
+                                </section>
+                                <script type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script>
+                                <script type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script>
+                                <script defer="true" type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script>
+                                <link rel="stylesheet" type="text/css"
+                                    href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+                            </div>
+                            <div class="article-licensing box">
+                                <div class="licensing-title">
+                                    <p>Markdown</p>
+                                    <p><a
+                                            href="http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/">http://mrdemonlxl.github.io/2021/01/20/Draft/2021/Markdown/</a>
+                                    </p>
+                                </div>
+                                <div class="licensing-meta level is-mobile">
+                                    <div class="level-left">
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>作者</h6><a href="http://MrDemonlxl.github.io">
+                                                    <p>魑魅先生</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>发布于</h6>
+                                                <p>2021-01-20</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>更新于</h6>
+                                                <p>2022-06-04</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>许可协议</h6>
+                                                <p><a class="icon" rel="noopener" target="_blank"
+                                                        title="Creative Commons" href="https://creativecommons.org/"><i
+                                                            class="fab fa-creative-commons"></i></a><a class="icon"
+                                                        rel="noopener" target="_blank" title="Attribution"
+                                                        href="https://creativecommons.org/licenses/by/4.0/"><i
+                                                            class="fab fa-creative-commons-by"></i></a><a class="icon"
+                                                        rel="noopener" target="_blank" title="Noncommercial"
+                                                        href="https://creativecommons.org/licenses/by-nc/4.0/"><i
+                                                            class="fab fa-creative-commons-nc"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommend-area">
+                                <div class="recommend-post"><span
+                                        class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a
+                                            class="is-size-6" href="/2021/02/25/Draft/2021/%E5%BF%AB%E6%9F%A5/"
+                                            target="_blank">快查</a><br></span><span>  2.<a class="is-size-6"
+                                            href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"
+                                            target="_blank">JVM 与上层技术</a><br></span><span>  3.<a class="is-size-6"
+                                            href="/2021/02/18/Draft/2021/%E4%BA%94%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BF%E5%8D%9A%E5%AE%A2/"
+                                            target="_blank">五分钟搭建在线博客</a><br></span><span>  4.<a class="is-size-6"
+                                            href="/2021/03/01/Draft/2021/%E5%89%8D%E7%AB%AF/" target="_blank">魑魅先生 |
+                                            前端</a><br></span><span>  5.<a class="is-size-6"
+                                            href="/2021/03/01/Draft/2021/JAVA%E5%BA%94%E7%94%A8/" target="_blank">魑魅先生 |
+                                            业务技术</a><br></span><span>  6.<a class="is-size-6"
+                                            href="/2021/03/01/Draft/2021/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
+                                            target="_blank">魑魅先生 | 设计模式</a><br></span></div>
+                            </div>
+                            <link rel="stylesheet"
+                                href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                            <div class="social-share"></div>
+                            <script
+                                src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+                            <div class="buttons is-centered"><a class="button donate" data-type="alipay"><span
+                                        class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span
+                                        class="qrcode"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/1c4f12804cc5a92919acd743d93a869.jpg"
+                                            alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span
+                                        class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span
+                                        class="qrcode"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/260e4f4bc9e4053108cd9d02bae7386.png"
+                                            alt="微信"></span></a></div>
+                        </div>
+                    </div>
+                    <nav class="post-navigation mt-4 level is-mobile">
+                        <div class="level-start"><a class="article-nav-prev level level-item link-muted"
+                                href="/2021/01/20/Draft/2021/Interesting%20Programs/"><i
+                                    class="level-item fas fa-chevron-left"></i><span class="level-item">Interesting
+                                    Programs</span></a></div>
+                        <div class="level-end"><a class="article-nav-next level level-item link-muted"
+                                href="/2021/01/20/Draft/2021/MyBatis/"><span class="level-item">MyBatis</span><i
+                                    class="level-item fas fa-chevron-right"></i></a></div>
+                    </nav>
+                    <!--!-->
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="title is-5">评论</div>
+                            <div id="comment-container"></div>
+                            <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css">
+                            <script> $.getScript('/js/gitalk.min.js', function () {
+                                    var gitalk = new Gitalk({
+                                        language: 'zh-CN',
+                                        id: 'fd9fb0a378aa4ae39718617cd73b3cc4',
+                                        repo: 'MrDemonlxl.github.io',
+                                        owner: 'MrDemonlxl',
+                                        clientID: '20ef8321698ab8c0c37b',
+                                        clientSecret: '4faa4daae14b55afd2ed357fba92d1e9c7c3f729',
+                                        admin: ["MrDemonlxl"],
+                                        createIssueManually: true,
+                                        distractionFreeMode: false,
+                                        perPage: 10,
+                                        pagerDirection: 'last',
+                                        proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+
+                                        enableHotKey: true,
+                                        isLocked: false
+                                    })
+                                    gitalk.render('comment-container')
+                                });</script>
+                        </div>
+                    </div>
+                </div>
+                <div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky">
+                    <div class="card widget" id="toc" data-type="toc">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">目录</h3>
+                                <ul class="menu-list">
+                                    <li><a class="is-flex is-mobile" href="#%E7%AC%A6%E5%8F%B7"><span>符号</span></a>
+                                        <ul class="menu-list">
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#markdown%E7%AE%AD%E5%A4%B4%E7%9A%84%E8%BE%93%E5%85%A5%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB"><span>Markdown箭头的输入方法汇总</span></a>
+                                                <ul class="menu-list">
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%E6%99%AE%E9%80%9A%E7%AE%AD%E5%A4%B4"><span>普通箭头</span></a>
+                                                    </li>
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%E9%95%BF%E7%AE%AD%E5%A4%B4"><span>长箭头</span></a>
+                                                    </li>
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%E5%85%B6%E4%BB%96%E7%AE%AD%E5%A4%B4"><span>其他箭头</span></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="is-flex is-mobile" href="#%E6%A0%BC%E5%BC%8F"><span>格式</span></a></li>
+                                    <li><a class="is-flex is-mobile" href="#%E5%9B%BE"><span>图</span></a>
+                                        <ul class="menu-list">
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E5%9B%BE%E7%89%87%EF%BC%88hexo%EF%BC%89"><span>图片（hexo）</span></a>
+                                                <ul class="menu-list">
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%E5%9B%BE-1"><span>图</span></a></li>
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%2B-%E6%A8%AA%E7%AB%96%E5%9B%BE"><span>+
+                                                                横竖图</span></a></li>
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%2B-%E6%A8%AA%E5%9B%BE4"><span>+ 横图4</span></a></li>
+                                                    <li><a class="is-flex is-mobile"
+                                                            href="#%2B-%E7%AB%96%E5%9B%BE5"><span>+ 竖图5</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E5%AF%BC%E5%9B%BE"><span>导图</span></a></li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E5%9B%BE"><span>状态转移图</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E7%B1%BB%E5%9B%BE"><span>类图</span></a></li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E9%A5%BC%E5%9B%BE"><span>饼图</span></a></li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C"><span>渲染效果</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E5%9F%BA%E7%A1%80fontawesome%E6%94%AF%E6%8C%81"><span>基础fontawesome支持</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E8%BF%9E%E7%BA%BF"><span>连线</span></a></li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E8%8A%82%E7%82%B9%E5%BD%A2%E7%8A%B6"><span>节点形状</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E7%94%98%E7%89%B9%E5%9B%BE"><span>甘特图</span></a></li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span>流程图</span></a></li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B"><span>时序图示例</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="is-flex is-mobile" href="#%E5%85%AC%E5%BC%8F"><span>公式</span></a></li>
+                                    <li><a class="is-flex is-mobile" href="#%E8%A1%A8%E6%A0%BC"><span>表格</span></a></li>
+                                    <li><a class="is-flex is-mobile" href="#%E4%BB%A3%E7%A0%81"><span>代码</span></a></li>
+                                    <li><a class="is-flex is-mobile" href="#%E8%84%9A%E6%B3%A8"><span>脚注</span></a></li>
+                                    <li><a class="is-flex is-mobile"
+                                            href="#todo%E5%88%97%E8%A1%A8"><span>todo列表</span></a></li>
+                                    <li><a class="is-flex is-mobile" href="#typory"><span>Typory</span></a>
+                                        <ul class="menu-list">
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%EF%BC%88%E4%BF%AE%E6%94%B9css%EF%BC%89"><span>自定义元素样式（修改CSS）</span></a>
+                                            </li>
+                                            <li><a class="is-flex is-mobile"
+                                                    href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span>快捷键</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="is-flex is-mobile" href="#%E5%85%B6%E4%BB%96"><span>其他</span></a>
+                                        <ul class="menu-list">
+                                            <ul class="menu-list">
+                                                <li><a class="is-flex is-mobile"
+                                                        href="#emoji%E3%80%90%E5%A4%96%E5%8F%AF%E8%AE%BF%E3%80%91%EF%BC%8Ctypora-%E5%BF%AB%E6%8D%B7%E9%94%AEwin%2B%E3%80%82"><span>emoji【外可访】，Typora
+                                                            快捷键WIN+。</span></a></li>
+                                            </ul>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <style>
+                            .menu-list>li>a.is-active+.menu-list {
+                                display: block;
+                            }
+
+                            .menu-list>li>a+.menu-list {
+                                display: none;
+                            }
+                        </style>
+                        <script src="/js/toc.js" defer></script>
+                    </div>
+                    <div class="card widget" data-type="profile">
+                        <div class="card-content">
+                            <nav class="level">
+                                <div class="level-item has-text-centered flex-shrink-1">
+                                    <div>
+                                        <figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded"
+                                                src="http://rcy276gfy.hd-bkt.clouddn.com/微信图片_20210131173244.jpg"
+                                                alt="魑魅先生"></figure>
+                                        <p class="title is-size-4 is-block" style="line-height:inherit;">魑魅先生</p>
+                                        <p class="is-size-6 is-block">快乐永远在解决问题的间隙里(*￣︶￣)</p>
+                                        <p class="is-size-6 is-flex justify-content-center"><i
+                                                class="fas fa-map-marker-alt mr-1"></i><span>浙江-杭州</span></p>
+                                    </div>
+                                </div>
+                            </nav>
+                            <nav class="level is-mobile">
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">文章</p><a href="/archives">
+                                            <p class="title">57</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">分类</p><a href="/categories">
+                                            <p class="title">86</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">标签</p><a href="/tags">
+                                            <p class="title">43</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="level"><a class="level-item button is-primary is-rounded"
+                                    href="https://github.com/MrDemonlxl" target="_blank" rel="noopener">关注我</a></div>
+                            <div class="level is-mobile"><a class="level-item button is-transparent is-marginless"
+                                    target="_blank" rel="noopener" title="Github"
+                                    href="https://github.com/MrDemonlxl"><i class="fab fa-github"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Weibo" href="https://weibo.com/MrDemonlxl"><i
+                                        class="fab fa-weibo"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Email" href="/714416426@qq.com"><i
+                                        class="fa fa-envelope"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Next" href="https://mrdemonlxl.github.io"><i
+                                        class="fab fa-dribbble"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="RSS"
+                                    href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI5NDc0MDg1Mg==#wechat_redirect"><i
+                                        class="fas fa-rss"></i></a></div>
+                            <div>
+                                <hr>
+                                <p id="hitokoto">:D 一言句子获取中...</p>
+                                <script type="text/javascript" defer>function getYiyan() {
+                                        $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                            if (data) {
+                                                $('#hitokoto').html("");
+                                                $('#hitokoto').append("<strong style='color: #3273dc;'>" + data.hitokoto + "</strong>" +
+                                                    "<p>" + "来源《" + data.from + "》</p><p>提供者-" + data.creator + "</p>");
+                                            }
+                                        });
+                                    }
+                                    $(function () { getYiyan(); $('#hitokoto').click(function () { getYiyan(); }) });</script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget" data-type="links">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">链接</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile" href="https://www.jianshu.com/u/4af2d33dbe6f"
+                                            target="_blank" rel="noopener"><span class="level-left"><span
+                                                    class="level-item">简书</span></span><span class="level-right"><span
+                                                    class="level-item tag">www.jianshu.com</span></span></a></li>
+                                    <li><a class="level is-mobile" href="https://blog.csdn.net/qq_37862970"
+                                            target="_blank" rel="noopener"><span class="level-left"><span
+                                                    class="level-item">CSDN</span></span><span class="level-right"><span
+                                                    class="level-item tag">blog.csdn.net</span></span></a></li>
+                                    <li><a class="level is-mobile" href="https://github.com/MrDemonlxl" target="_blank"
+                                            rel="noopener"><span class="level-left"><span
+                                                    class="level-item">GitHub</span></span><span
+                                                class="level-right"><span
+                                                    class="level-item tag">github.com</span></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <h3 class="menu-label">最新文章</h3>
+                            <article class="media">
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2022-05-22T10:59:37.980Z">2022-05-22</time></p>
+                                    <p class="title"><a href="/2022/05/22/Draft/2021/Draft/"> </a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/39go6v.jpg" alt="JVM 与上层技术"></a>
+                                </figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-11-10T14:10:43.000Z">2021-11-10</time></p>
+                                    <p class="title"><a
+                                            href="/2021/11/10/Draft/2021/JVM%20%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM
+                                            与上层技术</a></p>
+                                    <p class="categories"><a
+                                            href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/">底层学习</a> / <a
+                                            href="/categories/%E5%BA%95%E5%B1%82%E5%AD%A6%E4%B9%A0/JVM-%E4%B8%8E%E4%B8%8A%E5%B1%82%E6%8A%80%E6%9C%AF/">JVM
+                                            与上层技术</a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/10/20/Draft/2021/MyBatis-Plus/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/webp.png" alt="MyBatis-Plus"></a>
+                                </figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-10-20T14:10:43.000Z">2021-10-20</time></p>
+                                    <p class="title"><a href="/2021/10/20/Draft/2021/MyBatis-Plus/">MyBatis-Plus</a></p>
+                                    <p class="categories"><a href="/categories/Frame/">Frame</a> / <a
+                                            href="/categories/Frame/MyBatis-Plus/">MyBatis-Plus</a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/webp.png" alt="思维闪光"></a></figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-07-20T14:10:43.000Z">2021-07-20</time></p>
+                                    <p class="title"><a href="/2021/07/20/Draft/2021/%E9%97%AA%E5%85%89/">思维闪光</a></p>
+                                    <p class="categories"><a
+                                            href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/">临时记录</a> / <a
+                                            href="/categories/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/%E6%80%9D%E7%BB%B4%E9%97%AA%E5%85%89/">思维闪光</a>
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left"><a class="image"
+                                        href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/"><img
+                                            src="http://rcy276gfy.hd-bkt.clouddn.com/webp1.png" alt="Python 学习"></a>
+                                </figure>
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2021-05-31T14:10:43.000Z">2021-05-31</time></p>
+                                    <p class="title"><a href="/2021/05/31/Draft/2021/Python3%E5%AD%A6%E4%B9%A0/">Python
+                                            学习</a></p>
+                                    <p class="categories"><a
+                                            href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a> / <a
+                                            href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">分类</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile is-marginless"
+                                            href="/categories/BUG%E8%AE%B0%E5%BD%95/"><span class="level-start"><span
+                                                    class="level-item">BUG记录</span></span><span class="level-end"><span
+                                                    class="level-item tag">2</span></span></a>
+                                        <ul class="mr-0">
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/BUG%E8%AE%B0%E5%BD%95/BUG/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">BUG</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">2</span></span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="level is-mobile is-marginless" href="/categories/English/"><span
+                                                class="level-start"><span class="level-item">English</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a>
+                                        <ul class="mr-0">
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/English/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8B%B1%E8%AF%AD/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">程序员英语</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="level is-mobile is-marginless" href="/categories/Frame/"><span
+                                                class="level-start"><span class="level-item">Frame</span></span><span
+                                                class="level-end"><span class="level-item tag">6</span></span></a>
+                                        <ul class="mr-0">
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/MyBatis/"><span class="level-start"><span
+                                                            class="level-item">MyBatis</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/MyBatis-Plus/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">MyBatis-Plus</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/Spring/"><span class="level-start"><span
+                                                            class="level-item">Spring</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/SpringBoot/"><span class="level-start"><span
+                                                            class="level-item">SpringBoot</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                            <li><a class="level is-mobile is-marginless"
+                                                    href="/categories/Frame/SpringCloud/"><span
+                                                        class="level-start"><span
+                                                            class="level-item">SpringCloud</span></span><span
+                                                        class="level-end"><span
+                                                            class="level-item tag">1</span></span></a></li>
+                                        </ul>
+                                    </li><a class="level is-mobile is-marginless" href="/categories/"><span
+                                            class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">归档</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2022/05/"><span
+                                                class="level-start"><span class="level-item">五月 2022</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span
+                                                class="level-start"><span class="level-item">十一月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/10/"><span
+                                                class="level-start"><span class="level-item">十月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span
+                                                class="level-start"><span class="level-item">七月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile is-marginless" href="/archives/2021/05/"><span
+                                                class="level-start"><span class="level-item">五月 2021</span></span><span
+                                                class="level-end"><span class="level-item tag">3</span></span></a></li>
+                                    <a class="level is-mobile is-marginless" href="/archives/"><span
+                                            class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">标签</h3>
+                                <div class="field is-grouped is-grouped-multiline">
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/"><span
+                                                class="tag">工具教程</span><span class="tag is-grey-lightest">6</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Frame/"><span
+                                                class="tag">Frame</span><span class="tag is-grey-lightest">5</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"><span
+                                                class="tag">程序人生</span><span class="tag is-grey-lightest">3</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/BUG/"><span
+                                                class="tag">BUG</span><span class="tag is-grey-lightest">2</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tag">前端</span><span
+                                                class="tag is-grey-lightest">2</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/CRUD/"><span
+                                                class="tag">CRUD</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Docker/"><span
+                                                class="tag">Docker</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Dubbo/"><span
+                                                class="tag">Dubbo</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/English/"><span
+                                                class="tag">English</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Life/"><span
+                                                class="tag">Life</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/MongoDB/"><span
+                                                class="tag">MongoDB</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/NO-GAME-NO-LIFE/"><span
+                                                class="tag">NO GAME NO LIFE</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span
+                                                class="tag">Nginx</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span
+                                                class="tag">Python学习</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/RabbitMQ/"><span
+                                                class="tag">RabbitMQ</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/Redis/"><span
+                                                class="tag">Redis</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/Software-Engineer/"><span class="tag">Software
+                                                Engineer</span><span class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/SpringCloud/"><span
+                                                class="tag">SpringCloud</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/"><span
+                                                class="tag">临时记录</span><span class="tag is-grey-lightest">1</span></a>
+                                    </div>
+                                    <div class="control"><a class="tags has-addons"
+                                            href="/tags/%E4%B9%A6%E5%BD%B1%E9%9F%B3/"><span class="tag">书影音</span><span
+                                                class="tag is-grey-lightest">1</span></a></div>
+                                </div>
+                                <div class="field is-grouped is-grouped-multiline"><a class="tags has-addons"
+                                        href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget" data-type="subscribe-email">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">订阅更新</h3>
+                                <form action="https://feedburner.google.com/fb/a/mailverify" method="post"
+                                    target="popupwindow"
+                                    onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=mrdemonlxlFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true">
+                                    <input type="hidden" value="mrdemonlxlFeedsId" name="uri"><input type="hidden"
+                                        name="loc" value="en_US">
+                                    <div class="field has-addons">
+                                        <div class="control has-icons-left is-expanded"><input class="input"
+                                                name="email" type="email" placeholder="Email"><span
+                                                class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <div class="control"><input class="button" type="submit" value="订阅"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--!-->
+                    <div class="column-right-shadow is-hidden-widescreen"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="level">
+                <div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img
+                            src="http://rcy276gfy.hd-bkt.clouddn.com/彩色logo.png" alt="魑魅先生" height="28"></a>
+                    <p class="size-small"><span>&copy; 2022 魑魅先生</span>  Powered by <a href="https://hexo.io/"
+                            target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus"
+                            target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing"
+                            target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/"
+                                target="_blank">川ICP备88888888号-8</a><br></span><span>©
+                            版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a
+                                href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span
+                                id="statistic-times">loading...</span>
+                            <script>function createTime(time) {
+                                    var n = new Date(time);
+                                    now.setTime(now.getTime() + 250),
+                                        days = (now - n) / 1e3 / 60 / 60 / 24,
+                                        dnum = Math.floor(days),
+                                        hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                                        hnum = Math.floor(hours),
+                                        1 == String(hnum).length && (hnum = "0" + hnum),
+                                        minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                                        mnum = Math.floor(minutes),
+                                        1 == String(mnum).length && (mnum = "0" + mnum),
+                                        seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                                        snum = Math.round(seconds),
+                                        1 == String(snum).length && (snum = "0" + snum),
+                                        document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>" + time.split(" ")[0].replace(/\//g, ".") + "</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+                                } var now = new Date(); setInterval("createTime('2021/02/18 00:00:00')", 250, "");</script><br>
+                        </span>
+                    <div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong>
+                            小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div>
+                    </p>
+                </div>
+                <div class="level-end">
+                    <div class="field has-addons">
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Creative Commons" href="https://creativecommons.org/"><i
+                                    class="fab fa-creative-commons"></i></a></p>
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Attribution 4.0 International"
+                                href="https://creativecommons.org/licenses/by/4.0/"><i
+                                    class="fab fa-creative-commons-by"></i></a></p>
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i
+                                    class="fab fa-github"></i></a></p>
+                    </div>
+                    <div class="sideMusic">
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                        <script src="/js/APlayer.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+                        <meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="3071252637"
+                            theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting"
+                            lrctype="0" list-max-height="400px" fixed="true"></meting-js>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+    <script>moment.locale("zh-CN");</script>
+    <script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script>
+    <script src="/js/column.js"></script>
+    <script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i
+            class="fas fa-chevron-up"></i></a>
+    <script src="/js/back_to_top.js" defer></script>
+    <!--!-->
+    <!--!-->
+    <!--!-->
+    <script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script>
+    <script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"
+        defer></script>
+    <script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
@@ -721,20 +1547,38 @@ c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none
                 }
                 $('.justified-gallery').justifiedGallery();
             }
-        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('20ef8321698ab8c0c37b','4faa4daae14b55afd2ed357fba92d1e9c7c3f729','MrDemonlxl','MrDemonlxl.github.io',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
-        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+        });</script>
+    <!--!-->
+    <!--!-->
+    <!--!-->
+    <script src="/js/main.js" defer></script>
+    <script>$.getScript('/js/comment-issue-data.js', function () { loadIssueData('20ef8321698ab8c0c37b', '4faa4daae14b55afd2ed357fba92d1e9c7c3f729', 'MrDemonlxl', 'MrDemonlxl.github.io', false); })</script>
+    <div class="searchbox">
+        <div class="searchbox-container">
+            <div class="searchbox-header">
+                <div class="searchbox-input-container"><input class="searchbox-input" type="text"
+                        placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a>
+            </div>
+            <div class="searchbox-body"></div>
+        </div>
+    </div>
+    <script src="/js/insight.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({ "contentUrl": "/content.json" }, { "hint": "想要查找什么...", "untitled": "(无标题)", "posts": "文章", "pages": "页面", "categories": "分类", "tags": "标签" });
+        });</script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+    <script type="text/javascript">var pjax = new Pjax({
             elements: "a",//代表点击链接就更新
             selectors: [  //代表要更新的节点
                 ".section",
                 "title"
             ],
             cache: true,
-            cacheBust:false
+            cacheBust: false
         })
 
-        function loadBusuanzi(){
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        function loadBusuanzi() {
+            $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () { });
         }
 
         function loadMathJax() { //加载mathjax
@@ -748,20 +1592,23 @@ c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none
         // 开始 PJAX 执行的函数
         document.addEventListener('pjax:send', function () {
         });
-        
+
         // PJAX 完成之后执行的函数，可以和上面的重载放在一起
         document.addEventListener('pjax:complete', function () {
-            $(".section").css({opacity:1});
-            if(true){
-                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('20ef8321698ab8c0c37b','4faa4daae14b55afd2ed357fba92d1e9c7c3f729','MrDemonlxl','MrDemonlxl.github.io',false);});
+            $(".section").css({ opacity: 1 });
+            if (true) {
+                $.getScript('/js/comment-issue-data.js', function () { loadIssueData('20ef8321698ab8c0c37b', '4faa4daae14b55afd2ed357fba92d1e9c7c3f729', 'MrDemonlxl', 'MrDemonlxl.github.io', false); });
             }
-            if(false){
+            if (false) {
                 loadMathJax();
             }
             loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
             loadBackTop();
             loadBusuanzi();
-            if(typeof loadBanner == 'function'){
+            if (typeof loadBanner == 'function') {
                 loadBanner();
             }
-        });</script></body></html>
+        });</script>
+</body>
+
+</html>
